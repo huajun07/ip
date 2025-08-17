@@ -1,0 +1,9 @@
+todo review book
+deadline return book /by next week
+event lecture /from morning 8:00 /to night 21:00
+list
+mark 1
+mark 2
+unmark 1
+list
+bye

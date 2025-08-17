@@ -80,7 +80,7 @@ Example: `list`
 
 Quit the conversation
 
-Example: `list`
+Example: `bye`
 
 ```
 > bye
