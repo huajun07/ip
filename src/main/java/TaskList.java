@@ -12,14 +12,50 @@ public class TaskList {
 
     /**
      * Adds tasks to task list
-     * @param description description of task to be added
+     * @param task task to be added
      */
-    public void addTask(String description) {
+    private void addTask(Task task) {
         if (numOfTasks == MAX_SIZE) {
             throw new RuntimeException("TaskList Full!");
         }
-        tasks[numOfTasks] = new Task(description);
+        tasks[numOfTasks] = task;
         numOfTasks++;
+    }
+
+    /**
+     * Add todo task to task list
+     * @param description task description
+     * @return The added task
+     */
+    public Todo addTodo(String description) {
+        Todo task = new Todo(description);
+        addTask(task);
+        return task;
+    }
+
+    /**
+     * Add deadline task to task list
+     * @param description task description
+     * @param endTime deadline end
+     * @return The added task
+     */
+    public Deadline addDeadline(String description, String endTime) {
+        Deadline task = new Deadline(description, endTime);
+        addTask(task);
+        return task;
+    }
+
+    /**
+     * Add event task to task list
+     * @param description task description
+     * @param startTime event start
+     * @param endTime event end
+     * @return The added task
+     */
+    public Event addEvent(String description, String startTime, String endTime) {
+        Event task = new Event(description, startTime, endTime);
+        addTask(task);
+        return task;
     }
 
     /**
@@ -44,6 +80,14 @@ public class TaskList {
             throw new ArrayIndexOutOfBoundsException("TaskList index out of range");
         }
         return tasks[idx];
+    }
+
+    /**
+     * Getter function for num of tasks in list
+     * @return Num of tasks in list
+     */
+    public int getNumOfTasks() {
+        return numOfTasks;
     }
 
     /**
