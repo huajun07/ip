@@ -5,5 +5,11 @@ list
 mark 1
 mark 2
 unmark 1
+mark 5
+unmark 0
+todo
+deadline smth
+random
+event testing event /from cur /to
 list
 bye

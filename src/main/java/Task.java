@@ -2,7 +2,10 @@ public class Task {
     protected String description;
     protected boolean isDone;
 
-    public Task(String description) {
+    public Task(String description) throws EmptyAttributeException {
+        if (description.isEmpty()) {
+            throw new EmptyAttributeException("basic", "description");
+        }
         this.description = description;
         this.isDone = false;
     }

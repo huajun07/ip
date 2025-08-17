@@ -27,7 +27,7 @@ public class TaskList {
      * @param description task description
      * @return The added task
      */
-    public Todo addTodo(String description) {
+    public Todo addTodo(String description) throws EmptyAttributeException {
         Todo task = new Todo(description);
         addTask(task);
         return task;
@@ -39,7 +39,7 @@ public class TaskList {
      * @param endTime deadline end
      * @return The added task
      */
-    public Deadline addDeadline(String description, String endTime) {
+    public Deadline addDeadline(String description, String endTime) throws EmptyAttributeException {
         Deadline task = new Deadline(description, endTime);
         addTask(task);
         return task;
@@ -52,7 +52,7 @@ public class TaskList {
      * @param endTime event end
      * @return The added task
      */
-    public Event addEvent(String description, String startTime, String endTime) {
+    public Event addEvent(String description, String startTime, String endTime) throws EmptyAttributeException {
         Event task = new Event(description, startTime, endTime);
         addTask(task);
         return task;
@@ -63,9 +63,9 @@ public class TaskList {
      * @param idx Index of task to mark (0-indexed)
      * @param isDone Whether to mark the task as done or not done
      */
-    public void markTask(int idx, boolean isDone) {
+    public void markTask(int idx, boolean isDone) throws TaskListOutOfBoundsException {
         if (idx < 0 || idx >= numOfTasks) {
-            throw new ArrayIndexOutOfBoundsException("TaskList index out of range");
+            throw new TaskListOutOfBoundsException(idx, numOfTasks);
         }
         tasks[idx].setDone(isDone);
     }
@@ -75,9 +75,9 @@ public class TaskList {
      * @param idx Index of task to retrieve (0-indexed)
      * @return Requested task
      */
-    public Task getTask(int idx) {
+    public Task getTask(int idx) throws TaskListOutOfBoundsException {
         if (idx < 0 || idx >= numOfTasks) {
-            throw new ArrayIndexOutOfBoundsException("TaskList index out of range");
+            throw new TaskListOutOfBoundsException(idx, numOfTasks);
         }
         return tasks[idx];
     }

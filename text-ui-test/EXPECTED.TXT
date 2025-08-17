@@ -29,6 +29,30 @@
  Modified task: [T][ ] review book
 ------------------------------------------------------------
 > ------------------------------------------------------------
+ Invalid Input: Invalid index 4. There are 3 tasks in the list.
+ Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Invalid Input: Invalid index -1. There are 3 tasks in the list.
+ Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Invalid Input: The description attribute of a basic task cannot be empty!
+ Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Invalid Input: The /by attribute of a event task cannot be empty!
+ Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Invalid Input: Unknown Command
+ Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Invalid Input: The /to attribute of a event task cannot be empty!
+ Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
 1. [T][ ] review book
 2. [D][X] return book (by: next week)
 3. [E][ ] lecture (from: morning 8:00 to: night 21:00)

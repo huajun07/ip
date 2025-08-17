@@ -10,46 +10,59 @@ public class Chirp {
         taskList = new TaskList();
         while (true) {
             String input = prompt();
-            Scanner inputSc = new Scanner(input);
-            String command = inputSc.next();
-            if (command.equals("bye")) {
-                // Terminate the chatbot
-                exit();
+            try {
+                Scanner inputSc = new Scanner(input);
+                String command = inputSc.next();
+                if (command.equals("bye")) {
+                    // Terminate the chatbot
+                    exit();
+                    break;
+                } else if (command.equals("list")) {
+                    // List tasks
+                    printLine();
+                    taskList.display();
+                    printLine();
+                } else if (command.equals("mark") || command.equals("unmark")) {
+                    // Mark / Unmark task
+                    boolean isDone = command.equals("mark");
+                    // taskList accepts 0-index
+                    int idx = inputSc.nextInt() - 1;
+                    taskList.markTask(idx, isDone);
+                    printLine();
+                    System.out.println(" Modified task: " + taskList.getTask(idx));
+                    printLine();
+                } else if (command.equals("deadline")) {
+                    // Deadline task
+                    String description = extractAttribute(input, "deadline");
+                    String endTime = extractAttribute(input, "/by");
+                    Deadline task = taskList.addDeadline(description, endTime);
+                    showAddedTask(task);
+                } else if (command.equals("event")) {
+                    // Event task
+                    String description = extractAttribute(input, "event");
+                    String startTime = extractAttribute(input, "/from");
+                    String endTime = extractAttribute(input, "/to");
+                    Event task = taskList.addEvent(description, startTime, endTime);
+                    showAddedTask(task);
+                } else if (command.equals("todo")) {
+                    // Todo task
+                    String description = extractAttribute(input, "todo");
+                    Todo task = taskList.addTodo(description);
+                    showAddedTask(task);
+                } else {
+                    throw new ChirpException("Unknown Command");
+                }
+            } catch (ChirpException e) {
+                printLine();
+                System.out.println(" Invalid Input: " + e.getMessage());
+                System.out.println(" Please try again!");
+                printLine();
+            } catch (Exception e) {
+                printLine();
+                System.out.println(" FATAL: " + e.getMessage());
+                System.out.println(" Shutting down...");
+                printLine();
                 break;
-            } else if (command.equals("list")) {
-                // List tasks
-                printLine();
-                taskList.display();
-                printLine();
-            } else if (command.equals("mark") || command.equals("unmark")) {
-                // Mark/Unmark task
-                boolean isDone = command.equals("mark");
-                // taskList accepts 0-index
-                int idx = inputSc.nextInt() - 1;
-                taskList.markTask(idx, isDone);
-                printLine();
-                System.out.println(" Modified task: " + taskList.getTask(idx));
-                printLine();
-            } else if (command.equals("deadline")) {
-                // Deadline task
-                String description = extractAttribute(input, "deadline");
-                String endTime = extractAttribute(input, "/by");
-                Task task = taskList.addDeadline(description, endTime);
-                showAddedTask(task);
-            } else if (command.equals("event")) {
-                // Event task
-                String description = extractAttribute(input, "event");
-                String startTime = extractAttribute(input, "/from");
-                String endTime = extractAttribute(input, "/to");
-                Task task = taskList.addEvent(description, startTime, endTime);
-                showAddedTask(task);
-            } else if (command.equals("todo")) {
-                // Todo task
-                String description = extractAttribute(input, "todo");
-                Task task = taskList.addTodo(description);
-                showAddedTask(task);
-            } else {
-                throw new RuntimeException("Invalid Command");
             }
         }
     }
@@ -60,8 +73,7 @@ public class Chirp {
      */
     private static String prompt() {
         System.out.print("> ");
-        String input = sc.nextLine();
-        return input;
+        return sc.nextLine();
     }
 
     /**
@@ -105,7 +117,8 @@ public class Chirp {
      * @param input The input string
      * @param attribute Attribute to search for
      * @return String immediately after the attribute in the input string
-     *         until delimiter of / is reached.
+     *         until delimiter of / is reached. If the attribute is not found
+     *         an empty string is returned.
      */
     private static String extractAttribute(String input, String attribute) {
         int startIndex = input.indexOf(attribute);
@@ -121,10 +134,9 @@ public class Chirp {
             }
 
             // Extract the substring
-            String value = input.substring(startIndex, endIndex).trim();
-            return value;
+            return input.substring(startIndex, endIndex).trim();
         } else {
-            throw new RuntimeException("No attribute " + attribute + " found in " + input);
+            return "";
         }
     }
 }
