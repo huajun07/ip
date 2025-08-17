@@ -9,20 +9,31 @@ public class Chirp {
         TaskList taskList = new TaskList();
         while (true) {
             String input = prompt();
-            if (input.equals("bye")) {
+            Scanner inputSc = new Scanner(input);
+            String command = inputSc.next();
+            if (command.equals("bye")) {
                 // Terminate the chatbot
                 exit();
                 break;
-            } else if (input.equals("list")) {
+            } else if (command.equals("list")) {
                 // List tasks
                 printLine();
                 taskList.display();
                 printLine();
+            } else if (command.equals("mark") || command.equals("unmark")) {
+                // Mark/Unmark task
+                boolean isDone = command.equals("mark");
+                // taskList accepts 0-index
+                int idx = inputSc.nextInt() - 1;
+                taskList.markTask(idx, isDone);
+                printLine();
+                System.out.println(" Modified task: " + taskList.getTask(idx));
+                printLine();
             } else {
                 // Add task to list
-                taskList.addTasks(input);
+                taskList.addTask(input);
                 printLine();
-                System.out.println("Added: " + input);
+                System.out.println(" Added: " + input);
                 printLine();
             }
         }
