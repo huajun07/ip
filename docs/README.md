@@ -61,6 +61,20 @@ Example: `mark <task index>`
 ------------------------------------------------------------
 ```
 
+## Deleting tasks
+
+You can delete tasks in the list
+
+Example: `delete <task index>`
+
+```
+> delete 1
+------------------------------------------------------------
+ Delete task: [T][ ] review book
+ Currently 3 tasks in the task list.
+------------------------------------------------------------
+```
+
 ## List Tasks
 
 You can also lists the current tasks in the list

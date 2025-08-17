@@ -4,26 +4,35 @@
 ------------------------------------------------------------
 > ------------------------------------------------------------
  Added task: [T][ ] review book
- Currently 1 in the task list.
+ Currently 1 tasks in the task list.
 ------------------------------------------------------------
 > ------------------------------------------------------------
  Added task: [D][ ] return book (by: next week)
- Currently 2 in the task list.
+ Currently 2 tasks in the task list.
 ------------------------------------------------------------
 > ------------------------------------------------------------
  Added task: [E][ ] lecture (from: morning 8:00 to: night 21:00)
- Currently 3 in the task list.
+ Currently 3 tasks in the task list.
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Added task: [D][ ] return book again (by: next next week)
+ Currently 4 tasks in the task list.
 ------------------------------------------------------------
 > ------------------------------------------------------------
 1. [T][ ] review book
 2. [D][ ] return book (by: next week)
 3. [E][ ] lecture (from: morning 8:00 to: night 21:00)
+4. [D][ ] return book again (by: next next week)
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Delete task: [D][ ] return book (by: next week)
+ Currently 3 tasks in the task list.
 ------------------------------------------------------------
 > ------------------------------------------------------------
  Modified task: [T][X] review book
 ------------------------------------------------------------
 > ------------------------------------------------------------
- Modified task: [D][X] return book (by: next week)
+ Modified task: [E][X] lecture (from: morning 8:00 to: night 21:00)
 ------------------------------------------------------------
 > ------------------------------------------------------------
  Modified task: [T][ ] review book
@@ -54,8 +63,8 @@
 ------------------------------------------------------------
 > ------------------------------------------------------------
 1. [T][ ] review book
-2. [D][X] return book (by: next week)
-3. [E][ ] lecture (from: morning 8:00 to: night 21:00)
+2. [E][X] lecture (from: morning 8:00 to: night 21:00)
+3. [D][ ] return book again (by: next next week)
 ------------------------------------------------------------
 > ------------------------------------------------------------
  Bye. Hope to see you again soon!

@@ -31,6 +31,14 @@ public class Chirp {
                     printLine();
                     System.out.println(" Modified task: " + taskList.getTask(idx));
                     printLine();
+                } else if (command.equals("delete")) {
+                    // Delete task
+                    int idx = inputSc.nextInt() - 1;
+                    Task task = taskList.deleteTask(idx);
+                    printLine();
+                    System.out.println(" Delete task: " + task);
+                    showTaskListSize();
+                    printLine();
                 } else if (command.equals("deadline")) {
                     // Deadline task
                     String description = extractAttribute(input, "deadline");
@@ -103,13 +111,21 @@ public class Chirp {
     }
 
     /**
-     * Helper function to print exit message
+     * Helper function to print added task
+     * @param task Task addded
      */
     private static void showAddedTask(Task task) {
         printLine();
         System.out.println(" Added task: " + task);
-        System.out.println(" Currently " + taskList.getNumOfTasks() + " in the task list.");
+        showTaskListSize();
         printLine();
+    }
+
+    /**
+     * Helper function to print number of tasks in task list
+     */
+    private static void showTaskListSize() {
+        System.out.println(" Currently " + taskList.getNumOfTasks() + " tasks in the task list.");
     }
 
     /**

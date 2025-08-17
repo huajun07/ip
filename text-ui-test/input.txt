@@ -1,7 +1,9 @@
 todo review book
 deadline return book /by next week
 event lecture /from morning 8:00 /to night 21:00
+deadline return book again /by next next week
 list
+delete 2
 mark 1
 mark 2
 unmark 1

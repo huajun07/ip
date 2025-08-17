@@ -1,13 +1,12 @@
+import java.util.ArrayList;
+
 public class TaskList {
 
-    private static final int MAX_SIZE = 100;
-    private Task[] tasks; // List of task descriptions
-    private int numOfTasks; // Number of tasks in list
+    private ArrayList<Task> tasks; // List of task descriptions
 
 
     public TaskList() {
-        tasks = new Task[MAX_SIZE];
-        numOfTasks = 0;
+        tasks = new ArrayList<Task>();
     }
 
     /**
@@ -15,11 +14,7 @@ public class TaskList {
      * @param task task to be added
      */
     private void addTask(Task task) {
-        if (numOfTasks == MAX_SIZE) {
-            throw new RuntimeException("TaskList Full!");
-        }
-        tasks[numOfTasks] = task;
-        numOfTasks++;
+        tasks.add(task);
     }
 
     /**
@@ -58,16 +53,19 @@ public class TaskList {
         return task;
     }
 
+    public Task deleteTask(int idx) throws TaskListOutOfBoundsException {
+        checkValidIdx(idx);
+        return tasks.remove(idx);
+    }
+
     /**
      * Marks a task in the task list as done/not done
      * @param idx Index of task to mark (0-indexed)
      * @param isDone Whether to mark the task as done or not done
      */
     public void markTask(int idx, boolean isDone) throws TaskListOutOfBoundsException {
-        if (idx < 0 || idx >= numOfTasks) {
-            throw new TaskListOutOfBoundsException(idx, numOfTasks);
-        }
-        tasks[idx].setDone(isDone);
+        checkValidIdx(idx);
+        tasks.get(idx).setDone(isDone);
     }
 
     /**
@@ -76,10 +74,8 @@ public class TaskList {
      * @return Requested task
      */
     public Task getTask(int idx) throws TaskListOutOfBoundsException {
-        if (idx < 0 || idx >= numOfTasks) {
-            throw new TaskListOutOfBoundsException(idx, numOfTasks);
-        }
-        return tasks[idx];
+        checkValidIdx(idx);
+        return tasks.get(idx);
     }
 
     /**
@@ -87,15 +83,21 @@ public class TaskList {
      * @return Num of tasks in list
      */
     public int getNumOfTasks() {
-        return numOfTasks;
+        return tasks.size();
     }
 
     /**
      * Display task list
      */
     public void display() {
-        for (int i = 0; i < numOfTasks; i++) {
-            System.out.println((i+1) + ". " + tasks[i]);
+        for (int i = 0; i < getNumOfTasks(); i++) {
+            System.out.println((i+1) + ". " + tasks.get(i));
+        }
+    }
+
+    private void checkValidIdx(int idx) throws TaskListOutOfBoundsException {
+        if (idx < 0 || idx >= getNumOfTasks()) {
+            throw new TaskListOutOfBoundsException(idx, getNumOfTasks());
         }
     }
 }
