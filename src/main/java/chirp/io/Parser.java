@@ -27,6 +27,11 @@ public class Parser {
             // Move past the attribute
             startIndex += attribute.length();
 
+            if (startIndex < input.length() && input.charAt(startIndex) != ' ') {
+                // If attribute is not a word but a prefix of another word
+                return "";
+            }
+
             // Find the next '/' after the attribute
             int endIndex = input.indexOf("/", startIndex);
             if (endIndex == -1) {
@@ -62,12 +67,15 @@ public class Parser {
                 return new MarkAction(command, input);
             }
             case DELETE -> {
+                // Delete task
                 return new DeleteAction(input);
             }
             case TODO, DEADLINE, EVENT -> {
+                // Add task
                 return new AddAction(command, input);
             }
             case BYE -> {
+                // Exit chat bot
                 return new ExitAction();
             }
         }

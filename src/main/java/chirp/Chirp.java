@@ -1,3 +1,5 @@
+package chirp;
+
 import chirp.actions.Action;
 import chirp.exceptions.ChirpException;
 import chirp.io.Parser;
