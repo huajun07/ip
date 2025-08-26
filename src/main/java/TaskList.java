@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class TaskList {
@@ -89,9 +90,11 @@ public class TaskList {
     /**
      * Display task list
      */
-    public void display() {
+    public void display(LocalDate date) {
         for (int i = 0; i < getNumOfTasks(); i++) {
-            System.out.println((i+1) + ". " + tasks.get(i));
+            if (tasks.get(i).validForDate(date)) {
+                System.out.println((i+1) + ". " + tasks.get(i));
+            }
         }
     }
 

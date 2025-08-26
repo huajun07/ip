@@ -1,13 +1,15 @@
+import java.time.LocalDate;
+
 public class Deadline extends Task {
     public static final String tag = "D";
-    private String endTime;
+    private LocalDate endTime;
 
     public Deadline(String description, String endTime) throws ChirpException {
         super(description);
         if (endTime.isEmpty()) {
             throw new ChirpException.EmptyAttributeException("event", Attribute.BY.getTag());
         }
-        this.endTime = endTime;
+        this.endTime = Parser.convertDateAttr(endTime, Attribute.BY.getTag());
     }
 
     public static Deadline deserialise(String data) throws ChirpException {
@@ -25,5 +27,11 @@ public class Deadline extends Task {
     @Override
     public String toString() {
         return String.format("[%s]%s (by: %s)", tag, super.toString(), endTime);
+    }
+
+    @Override
+    public boolean validForDate(LocalDate date) {
+        if (date == null) return true;
+        return date.isEqual(endTime);
     }
 }

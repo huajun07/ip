@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Chirp {
@@ -19,8 +20,13 @@ public class Chirp {
                     switch (command) {
                         case LIST -> {
                             // List tasks
+                            String dateStr = Parser.extractAttribute(input, Attribute.ON.getTag());
+                            LocalDate date = null;
+                            if (!dateStr.isEmpty()) {
+                                date = Parser.convertDateAttr(dateStr, Attribute.ON.getTag());
+                            }
                             printLine();
-                            taskList.display();
+                            taskList.display(date);
                             printLine();
                         }
                         case MARK, UNMARK -> {
@@ -44,22 +50,22 @@ public class Chirp {
                         }
                         case TODO -> {
                             // Todo task
-                            String description = extractAttribute(input, Command.TODO.getKeyword());
+                            String description = Parser.extractAttribute(input, Command.TODO.getKeyword());
                             Todo task = taskList.addTodo(description);
                             showAddedTask(task);
                         }
                         case DEADLINE -> {
                             // Deadline task
-                            String description = extractAttribute(input, Command.DEADLINE.getKeyword());
-                            String endTime = extractAttribute(input, Attribute.BY.getTag());
+                            String description = Parser.extractAttribute(input, Command.DEADLINE.getKeyword());
+                            String endTime = Parser.extractAttribute(input, Attribute.BY.getTag());
                             Deadline task = taskList.addDeadline(description, endTime);
                             showAddedTask(task);
                         }
                         case EVENT -> {
                             // Event task
-                            String description = extractAttribute(input, Command.EVENT.getKeyword());
-                            String startTime = extractAttribute(input, Attribute.FROM.getTag());
-                            String endTime = extractAttribute(input, Attribute.TO.getTag());
+                            String description = Parser.extractAttribute(input, Command.EVENT.getKeyword());
+                            String startTime = Parser.extractAttribute(input, Attribute.FROM.getTag());
+                            String endTime = Parser.extractAttribute(input, Attribute.TO.getTag());
                             Event task = taskList.addEvent(description, startTime, endTime);
                             showAddedTask(task);
                         }
@@ -136,33 +142,5 @@ public class Chirp {
      */
     private static void showTaskListSize() {
         System.out.println(" Currently " + taskList.getNumOfTasks() + " tasks in the task list.");
-    }
-
-    /**
-     * Given an input string extract attribute string
-     * @param input The input string
-     * @param attribute Attribute to search for
-     * @return String immediately after the attribute in the input string
-     *         until delimiter of / is reached. If the attribute is not found
-     *         an empty string is returned.
-     */
-    private static String extractAttribute(String input, String attribute) {
-        int startIndex = input.indexOf(attribute);
-        if (startIndex != -1) {
-            // Move past the attribute
-            startIndex += attribute.length();
-
-            // Find the next '/' after the attribute
-            int endIndex = input.indexOf("/", startIndex);
-            if (endIndex == -1) {
-                // No delimiter after attribute
-                endIndex = input.length();
-            }
-
-            // Extract the substring
-            return input.substring(startIndex, endIndex).trim();
-        } else {
-            return "";
-        }
     }
 }

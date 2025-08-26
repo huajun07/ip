@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public abstract class Task {
     protected String description;
     protected boolean isDone;
@@ -36,6 +38,10 @@ public abstract class Task {
 
     protected void setDone(String data) {
         this.isDone = data.equals("X");
+    }
+
+    protected boolean validForDate(LocalDate date) {
+        return true;
     }
 
     @Override
