@@ -30,6 +30,6 @@ public enum Command {
                 return cmd;
             }
         }
-        throw new ChirpException("Unknown Command");
+        throw new ChirpException.InvalidCommand();
     }
 }

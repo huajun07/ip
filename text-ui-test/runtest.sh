@@ -20,7 +20,7 @@ then
 fi
 
 # remove data file if exists
-rm data/chirp.txt
+rm data/tasks.txt
 
 # run the program, feed commands from input.txt file and redirect the output to the ACTUAL.TXT
 java -classpath ../bin Chirp < input.txt > ACTUAL.TXT

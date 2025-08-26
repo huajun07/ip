@@ -3,6 +3,12 @@ public class ChirpException extends Exception {
         super(reason);
     }
 
+    public static class InvalidCommand extends ChirpException {
+        public InvalidCommand() {
+            super("Unknown Command");
+        }
+    }
+
     public static class EmptyAttributeException extends ChirpException {
         public EmptyAttributeException(String taskType, String attribute) {
             super("The " + attribute + " attribute of a " + taskType + " task cannot be empty!");

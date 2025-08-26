@@ -18,42 +18,6 @@ public class TaskList {
         tasks.add(task);
     }
 
-    /**
-     * Add todo task to task list
-     * @param description task description
-     * @return The added task
-     */
-    public Todo addTodo(String description) throws ChirpException {
-        Todo task = new Todo(description);
-        addTask(task);
-        return task;
-    }
-
-    /**
-     * Add deadline task to task list
-     * @param description task description
-     * @param endTime deadline end
-     * @return The added task
-     */
-    public Deadline addDeadline(String description, String endTime) throws ChirpException {
-        Deadline task = new Deadline(description, endTime);
-        addTask(task);
-        return task;
-    }
-
-    /**
-     * Add event task to task list
-     * @param description task description
-     * @param startTime event start
-     * @param endTime event end
-     * @return The added task
-     */
-    public Event addEvent(String description, String startTime, String endTime) throws ChirpException {
-        Event task = new Event(description, startTime, endTime);
-        addTask(task);
-        return task;
-    }
-
     public Task deleteTask(int idx) throws ChirpException {
         checkValidIdx(idx);
         return tasks.remove(idx);
@@ -90,12 +54,14 @@ public class TaskList {
     /**
      * Display task list
      */
-    public void display(LocalDate date) {
+    public String displayStr(LocalDate date) {
+        StringBuilder data = new StringBuilder();
         for (int i = 0; i < getNumOfTasks(); i++) {
             if (tasks.get(i).validForDate(date)) {
-                System.out.println((i+1) + ". " + tasks.get(i));
+                data.append(String.format("%d. %s\n", i + 1, tasks.get(i)));
             }
         }
+        return data.toString();
     }
 
     private void checkValidIdx(int idx) throws ChirpException {

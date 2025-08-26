@@ -1,5 +1,6 @@
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Parser {
     /**
@@ -36,5 +37,30 @@ public class Parser {
         } catch (DateTimeException e) {
             throw new ChirpException.InvalidAttribute(data, attribute, "Not in yyyy-MM-dd format.");
         }
+    }
+
+    public static Action parse(String input) throws ChirpException {
+        Scanner inputSc = new Scanner(input);
+        Command command = Command.fromString(inputSc.next());
+        switch (command) {
+            case LIST -> {
+                // List tasks
+                return new ListAction(input);
+            }
+            case MARK, UNMARK -> {
+                // Mark / Unmark task
+                return new MarkAction(command, input);
+            }
+            case DELETE -> {
+                return new DeleteAction(input);
+            }
+            case TODO, DEADLINE, EVENT -> {
+                return new AddAction(command, input);
+            }
+            case BYE -> {
+                return new ExitAction();
+            }
+        }
+        throw new ChirpException.InvalidCommand();
     }
 }

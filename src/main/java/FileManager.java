@@ -55,23 +55,13 @@ public class FileManager {
 
     public TaskList loadTasks() throws ChirpException, IOException {
         TaskList taskList = new TaskList();
-        try {
-            BufferedReader reader = Files.newBufferedReader(filePath);
-            String line;
-            while ((line = reader.readLine()) != null) {
-                if (!line.isEmpty()) {
-                    taskList.addTask(deserialiseTask(line));
-                }
+        BufferedReader reader = Files.newBufferedReader(filePath);
+        String line;
+        while ((line = reader.readLine()) != null) {
+            if (!line.isEmpty()) {
+                taskList.addTask(deserialiseTask(line));
             }
-        } catch (ChirpException e) {
-            System.out.println("Corrupted File.... " + e.getMessage());
-            System.out.println("Resetting TaskList...");
-            // If the file is corrupted reset to empty list
-            taskList = new TaskList();
         }
-
-        // Rest data file in the event the file is corrupted
-        saveTasks(taskList);
         return taskList;
     }
 }
