@@ -1,4 +1,4 @@
-public class Task {
+public abstract class Task {
     protected String description;
     protected boolean isDone;
 
@@ -10,6 +10,22 @@ public class Task {
         this.isDone = false;
     }
 
+    protected static String[] deserialiseFields(String data, String tag, int numOfFields) throws ChirpException.CorruptedFile {
+        String[] fields = data.split("\\|");
+        if (fields.length != numOfFields) {
+            throw new ChirpException.CorruptedFile("Wrong Number of Fields for tag " + tag);
+        }
+        if (!fields[0].equals(tag)) {
+            throw new ChirpException.CorruptedFile("Invalid Tag");
+        }
+        for (String field : fields) {
+            if (field.isEmpty()) {
+                throw new ChirpException.CorruptedFile("Empty Field");
+            }
+        }
+        return fields;
+    }
+
     private String getStatusIcon() {
         return (isDone ? "X" : " ");
     }
@@ -18,8 +34,14 @@ public class Task {
         this.isDone = isDone;
     }
 
+    protected void setDone(String data) {
+        this.isDone = data.equals("X");
+    }
+
     @Override
     public String toString() {
         return "[" + getStatusIcon() + "] " + description;
     }
+
+    public abstract String serialise();
 }

@@ -14,4 +14,10 @@ public class ChirpException extends Exception {
             super("Invalid index " + idx + ". There are " + size + " tasks in the list.");
         }
     }
+
+    public static class CorruptedFile extends ChirpException {
+        public CorruptedFile(String reason) {
+            super("Corrupted File. Invalid Entry: " + reason);
+        }
+    }
 }

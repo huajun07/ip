@@ -1,4 +1,5 @@
 public class Event extends Task {
+    public static final String tag = "E";
     private String startTime;
     private String endTime;
 
@@ -14,8 +15,20 @@ public class Event extends Task {
         this.endTime = endTime;
     }
 
+    public static Event deserialise(String data) throws ChirpException {
+        String[] fields = deserialiseFields(data, tag, 5);
+        Event task = new Event(fields[2], fields[3], fields[4]);
+        task.setDone(fields[1]);
+        return task;
+    }
+
+    @Override
+    public String serialise() {
+        return String.format("%s|%s|%s|%s|%s", tag, isDone ? "X" : "O", description, startTime, endTime);
+    }
+
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from: " + startTime + " to: " + endTime + ")";
+        return String.format("[%s]%s (from: %s to: %s)", tag, super.toString(), startTime, endTime);
     }
 }

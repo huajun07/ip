@@ -13,7 +13,7 @@ public class TaskList {
      * Adds tasks to task list
      * @param task task to be added
      */
-    private void addTask(Task task) {
+    public void addTask(Task task) {
         tasks.add(task);
     }
 
