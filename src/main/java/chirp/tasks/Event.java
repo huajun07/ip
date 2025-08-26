@@ -1,4 +1,9 @@
+package chirp.tasks;
 import java.time.LocalDate;
+
+import chirp.exceptions.ChirpException;
+import chirp.io.Attribute;
+import chirp.io.Parser;
 
 public class Event extends Task {
     public static final String tag = "E";

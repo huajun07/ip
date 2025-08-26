@@ -1,5 +1,8 @@
+package chirp.tasks;
 import java.time.LocalDate;
 import java.util.ArrayList;
+
+import chirp.exceptions.ChirpException;
 
 public class TaskList {
 

@@ -1,4 +1,10 @@
+package chirp.actions;
 import java.util.Scanner;
+
+import chirp.exceptions.ChirpException;
+import chirp.io.Ui;
+import chirp.tasks.Task;
+import chirp.tasks.TaskList;
 
 public class DeleteAction extends Action {
     private int index;

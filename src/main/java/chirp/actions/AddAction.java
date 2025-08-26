@@ -1,3 +1,14 @@
+package chirp.actions;
+import chirp.exceptions.ChirpException;
+import chirp.io.Attribute;
+import chirp.io.Parser;
+import chirp.io.Ui;
+import chirp.tasks.Deadline;
+import chirp.tasks.Event;
+import chirp.tasks.Task;
+import chirp.tasks.TaskList;
+import chirp.tasks.Todo;
+
 public class AddAction extends Action {
     private Task task;
 

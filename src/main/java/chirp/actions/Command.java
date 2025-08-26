@@ -1,3 +1,6 @@
+package chirp.actions;
+import chirp.exceptions.ChirpException;
+
 public enum Command {
     BYE("bye"),
     LIST("list"),

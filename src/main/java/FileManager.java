@@ -5,6 +5,15 @@ import java.nio.file.Paths;
 import java.io.BufferedReader;
 import java.nio.file.StandardOpenOption;
 
+import chirp.tasks.TaskList;
+
+import chirp.tasks.Todo;
+
+import chirp.tasks.Task;
+import chirp.exceptions.ChirpException;
+import chirp.tasks.Deadline;
+import chirp.tasks.Event;
+
 public class FileManager {
     private final Path filePath;
 

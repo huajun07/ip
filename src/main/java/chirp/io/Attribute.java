@@ -1,3 +1,4 @@
+package chirp.io;
 public enum Attribute {
     FROM("/from"),
     TO("/to"),
