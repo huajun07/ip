@@ -2,9 +2,9 @@ public class Task {
     protected String description;
     protected boolean isDone;
 
-    public Task(String description) throws EmptyAttributeException {
+    public Task(String description) throws ChirpException {
         if (description.isEmpty()) {
-            throw new EmptyAttributeException("basic", "description");
+            throw new ChirpException.EmptyAttributeException("basic", "description");
         }
         this.description = description;
         this.isDone = false;

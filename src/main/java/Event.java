@@ -2,13 +2,13 @@ public class Event extends Task {
     private String startTime;
     private String endTime;
 
-    public Event(String description, String startTime, String endTime) throws EmptyAttributeException {
+    public Event(String description, String startTime, String endTime) throws ChirpException {
         super(description);
         if (startTime.isEmpty()) {
-            throw new EmptyAttributeException("event", Attribute.FROM.getTag());
+            throw new ChirpException.EmptyAttributeException("event", Attribute.FROM.getTag());
         }
         if (endTime.isEmpty()) {
-            throw new EmptyAttributeException("event", Attribute.TO.getTag());
+            throw new ChirpException.EmptyAttributeException("event", Attribute.TO.getTag());
         }
         this.startTime = startTime;
         this.endTime = endTime;

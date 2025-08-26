@@ -1,6 +1,6 @@
 public class Todo extends Task {
 
-    public Todo(String description) throws EmptyAttributeException {
+    public Todo(String description) throws ChirpException {
         super(description);
     }
 

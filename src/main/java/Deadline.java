@@ -1,10 +1,10 @@
 public class Deadline extends Task {
     private String endTime;
 
-    public Deadline(String description, String endTime) throws EmptyAttributeException {
+    public Deadline(String description, String endTime) throws ChirpException {
         super(description);
         if (endTime.isEmpty()) {
-            throw new EmptyAttributeException("event", Attribute.BY.getTag());
+            throw new ChirpException.EmptyAttributeException("event", Attribute.BY.getTag());
         }
         this.endTime = endTime;
     }
