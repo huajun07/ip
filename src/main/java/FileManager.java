@@ -63,7 +63,7 @@ public class FileManager {
                     taskList.addTask(deserialiseTask(line));
                 }
             }
-        } catch (ChirpException.CorruptedFile e) {
+        } catch (ChirpException e) {
             System.out.println("Corrupted File.... " + e.getMessage());
             System.out.println("Resetting TaskList...");
             // If the file is corrupted reset to empty list

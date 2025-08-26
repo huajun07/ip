@@ -1,7 +1,9 @@
+import java.time.LocalDate;
+
 public class Event extends Task {
     public static final String tag = "E";
-    private String startTime;
-    private String endTime;
+    private LocalDate startTime;
+    private LocalDate endTime;
 
     public Event(String description, String startTime, String endTime) throws ChirpException {
         super(description);
@@ -11,8 +13,8 @@ public class Event extends Task {
         if (endTime.isEmpty()) {
             throw new ChirpException.EmptyAttributeException("event", Attribute.TO.getTag());
         }
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.startTime = Parser.convertDateAttr(startTime, Attribute.FROM.getTag());
+        this.endTime = Parser.convertDateAttr(endTime, Attribute.TO.getTag());
     }
 
     public static Event deserialise(String data) throws ChirpException {
@@ -30,5 +32,12 @@ public class Event extends Task {
     @Override
     public String toString() {
         return String.format("[%s]%s (from: %s to: %s)", tag, super.toString(), startTime, endTime);
+    }
+
+    @Override
+    public boolean validForDate(LocalDate date) {
+        if (date == null) return true;
+        return (date.isAfter(startTime) && date.isBefore(endTime))
+                || date.isEqual(startTime) || date.isEqual(endTime);
     }
 }

@@ -20,4 +20,10 @@ public class ChirpException extends Exception {
             super("Corrupted File. Invalid Entry: " + reason);
         }
     }
+
+    public static class InvalidAttribute extends ChirpException {
+        public InvalidAttribute(String data, String attribute, String reason) {
+            super(String.format("Attribute %s %s is invalid: %s", attribute, data, reason));
+        }
+    }
 }

@@ -1,7 +1,8 @@
 public enum Attribute {
     FROM("/from"),
     TO("/to"),
-    BY("/by");
+    BY("/by"),
+    ON("/on");
 
     private final String tag;
     Attribute(String tag) {

@@ -1,8 +1,13 @@
 todo review book
-deadline return book /by next week
-event lecture /from morning 8:00 /to night 21:00
-deadline return book again /by next next week
+deadline return book /by 2025-12-02
+event lecture /from 2025-11-11 /to 2025-12-11
+deadline return book again /by 2025-12-07
+deadline return book again /by tmr
 list
+list /on 2025-12-02
+list /on 2025-12-07
+list /on 2025-12-12
+list /on later
 delete 2
 mark 1
 mark 2
