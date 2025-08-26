@@ -13,7 +13,7 @@ public class TaskList {
      * Adds tasks to task list
      * @param task task to be added
      */
-    private void addTask(Task task) {
+    public void addTask(Task task) {
         tasks.add(task);
     }
 
@@ -22,7 +22,7 @@ public class TaskList {
      * @param description task description
      * @return The added task
      */
-    public Todo addTodo(String description) throws EmptyAttributeException {
+    public Todo addTodo(String description) throws ChirpException {
         Todo task = new Todo(description);
         addTask(task);
         return task;
@@ -34,7 +34,7 @@ public class TaskList {
      * @param endTime deadline end
      * @return The added task
      */
-    public Deadline addDeadline(String description, String endTime) throws EmptyAttributeException {
+    public Deadline addDeadline(String description, String endTime) throws ChirpException {
         Deadline task = new Deadline(description, endTime);
         addTask(task);
         return task;
@@ -47,13 +47,13 @@ public class TaskList {
      * @param endTime event end
      * @return The added task
      */
-    public Event addEvent(String description, String startTime, String endTime) throws EmptyAttributeException {
+    public Event addEvent(String description, String startTime, String endTime) throws ChirpException {
         Event task = new Event(description, startTime, endTime);
         addTask(task);
         return task;
     }
 
-    public Task deleteTask(int idx) throws TaskListOutOfBoundsException {
+    public Task deleteTask(int idx) throws ChirpException {
         checkValidIdx(idx);
         return tasks.remove(idx);
     }
@@ -63,7 +63,7 @@ public class TaskList {
      * @param idx Index of task to mark (0-indexed)
      * @param isDone Whether to mark the task as done or not done
      */
-    public void markTask(int idx, boolean isDone) throws TaskListOutOfBoundsException {
+    public void markTask(int idx, boolean isDone) throws ChirpException {
         checkValidIdx(idx);
         tasks.get(idx).setDone(isDone);
     }
@@ -73,7 +73,7 @@ public class TaskList {
      * @param idx Index of task to retrieve (0-indexed)
      * @return Requested task
      */
-    public Task getTask(int idx) throws TaskListOutOfBoundsException {
+    public Task getTask(int idx) throws ChirpException {
         checkValidIdx(idx);
         return tasks.get(idx);
     }
@@ -95,9 +95,9 @@ public class TaskList {
         }
     }
 
-    private void checkValidIdx(int idx) throws TaskListOutOfBoundsException {
+    private void checkValidIdx(int idx) throws ChirpException {
         if (idx < 0 || idx >= getNumOfTasks()) {
-            throw new TaskListOutOfBoundsException(idx, getNumOfTasks());
+            throw new ChirpException.TaskListOutOfBoundsException(idx, getNumOfTasks());
         }
     }
 }

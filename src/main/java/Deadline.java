@@ -1,16 +1,29 @@
 public class Deadline extends Task {
+    public static final String tag = "D";
     private String endTime;
 
-    public Deadline(String description, String endTime) throws EmptyAttributeException {
+    public Deadline(String description, String endTime) throws ChirpException {
         super(description);
         if (endTime.isEmpty()) {
-            throw new EmptyAttributeException("event", Attribute.BY.getTag());
+            throw new ChirpException.EmptyAttributeException("event", Attribute.BY.getTag());
         }
         this.endTime = endTime;
     }
 
+    public static Deadline deserialise(String data) throws ChirpException {
+        String[] fields = deserialiseFields(data, tag, 4);
+        Deadline task = new Deadline(fields[2], fields[3]);
+        task.setDone(fields[1]);
+        return task;
+    }
+
+    @Override
+    public String serialise() {
+        return String.format("%s|%s|%s|%s", tag, isDone ? "X" : "O", description, endTime);
+    }
+
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + endTime + ")";
+        return String.format("[%s]%s (by: %s)", tag, super.toString(), endTime);
     }
 }
