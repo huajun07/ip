@@ -12,6 +12,10 @@ public class Chirp {
     private FileManager fileManager;
     private boolean running;
 
+    /**
+     * Initialises chatbot before being run
+     * @param filePath Path to load task data file from
+     */
     public Chirp(String filePath) {
         ui = new Ui();
         running = true;
@@ -28,6 +32,9 @@ public class Chirp {
         }
     }
 
+    /**
+     * Runs the chatbot, handling user input
+     */
     public void run() {
         ui.greet();
         try {

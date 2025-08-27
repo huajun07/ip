@@ -8,7 +8,9 @@ public class TaskList {
 
     private ArrayList<Task> tasks; // List of task descriptions
 
-
+    /**
+     * Creates a task list object to manage list of tasks
+     */
     public TaskList() {
         tasks = new ArrayList<Task>();
     }
@@ -55,7 +57,7 @@ public class TaskList {
     }
 
     /**
-     * Display task list
+     * @return Human-readable string of list of task objects
      */
     public String displayStr(LocalDate date) {
         StringBuilder data = new StringBuilder();
