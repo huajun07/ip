@@ -1,4 +1,5 @@
 package chirp.io;
+
 import java.util.Scanner;
 
 import chirp.tasks.TaskList;
@@ -7,7 +8,8 @@ public class Ui {
     private static final String NAME = "Chirp";
     private static final Scanner sc = new Scanner(System.in);
 
-    public Ui() {}
+    public Ui() {
+    }
 
     /**
      * Helper function to print horizontal line
@@ -24,6 +26,7 @@ public class Ui {
 
     /**
      * Prompts the user for an input
+     *
      * @return Input by user
      */
     public String prompt() {
@@ -33,19 +36,19 @@ public class Ui {
 
     public void fatalError(String error) {
         String data = " FATAL: " + error + "\n" +
-                      " Shutting down...\n";
+                " Shutting down...\n";
         printMessage(data);
     }
 
     public void loadingError(String error) {
         String data = " Error in loading: " + error + "\n" +
-                      " Defaulting to empty task list.\n";
+                " Defaulting to empty task list.\n";
         printMessage(data);
     }
 
     public void inputError(String error) {
         String data = " Invalid Input: " + error + "\n" +
-                      " Please try again!\n";
+                " Please try again!\n";
         printMessage(data);
     }
 
@@ -54,7 +57,7 @@ public class Ui {
      */
     public void greet() {
         String data = " Hello! I'm " + NAME + "\n" +
-                      " What can I do for you?\n";
+                " What can I do for you?\n";
         printMessage(data);
     }
 

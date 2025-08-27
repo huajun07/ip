@@ -1,4 +1,5 @@
 package chirp.actions;
+
 import java.util.Scanner;
 
 import chirp.exceptions.ChirpException;

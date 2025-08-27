@@ -1,4 +1,5 @@
 package chirp.io;
+
 public enum Attribute {
     FROM("/from"),
     TO("/to"),
@@ -6,6 +7,7 @@ public enum Attribute {
     ON("/on");
 
     private final String tag;
+
     Attribute(String tag) {
         this.tag = tag;
     }

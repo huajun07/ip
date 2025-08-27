@@ -1,4 +1,5 @@
 package chirp.tasks;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -15,6 +16,7 @@ public class TaskList {
 
     /**
      * Adds tasks to task list
+     *
      * @param task task to be added
      */
     public void addTask(Task task) {
@@ -28,7 +30,8 @@ public class TaskList {
 
     /**
      * Marks a task in the task list as done/not done
-     * @param idx Index of task to mark (0-indexed)
+     *
+     * @param idx    Index of task to mark (0-indexed)
      * @param isDone Whether to mark the task as done or not done
      */
     public void markTask(int idx, boolean isDone) throws ChirpException {
@@ -38,6 +41,7 @@ public class TaskList {
 
     /**
      * Getter function for task in list
+     *
      * @param idx Index of task to retrieve (0-indexed)
      * @return Requested task
      */
@@ -48,6 +52,7 @@ public class TaskList {
 
     /**
      * Getter function for num of tasks in list
+     *
      * @return Num of tasks in list
      */
     public int getNumOfTasks() {

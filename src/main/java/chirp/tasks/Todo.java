@@ -1,4 +1,5 @@
 package chirp.tasks;
+
 import chirp.exceptions.ChirpException;
 
 public class Todo extends Task {
