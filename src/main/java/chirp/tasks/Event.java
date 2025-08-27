@@ -10,6 +10,13 @@ public class Event extends Task {
     private LocalDate startTime;
     private LocalDate endTime;
 
+    /**
+     * Creates a task with a active period
+     * @param description Task description
+     * @param startTime Start date in yyyy-MM-dd format
+     * @param endTime End date in yyyy-MM-dd format
+     * @throws ChirpException
+     */
     public Event(String description, String startTime, String endTime) throws ChirpException {
         super(description);
         if (startTime.isEmpty()) {
@@ -22,6 +29,12 @@ public class Event extends Task {
         this.endTime = Parser.convertDateAttr(endTime, Attribute.TO.getTag());
     }
 
+    /**
+     * Deserialise a data string to a event task object
+     * @param data Data string
+     * @return The corresponding event task object
+     * @throws ChirpException
+     */
     public static Event deserialise(String data) throws ChirpException {
         String[] fields = deserialiseFields(data, tag, 5);
         Event task = new Event(fields[2], fields[3], fields[4]);
@@ -29,16 +42,26 @@ public class Event extends Task {
         return task;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String serialise() {
         return String.format("%s|%s|%s|%s|%s", tag, isDone ? "X" : "O", description, startTime, endTime);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String toString() {
         return String.format("[%s]%s (from: %s to: %s)", tag, super.toString(), startTime, endTime);
     }
 
+    /**
+     * @param date Date filter
+     * @return True if date filter lies in event period
+     */
     @Override
     public boolean validForDate(LocalDate date) {
         if (date == null) return true;

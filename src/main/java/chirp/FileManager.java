@@ -19,6 +19,11 @@ import chirp.tasks.Event;
 public class FileManager {
     private final Path filePath;
 
+    /**
+     * Initialise the file manager and creates data file if it doesnt exist
+     * @param filePathStr File path
+     * @throws IOException
+     */
     public FileManager(String filePathStr) throws IOException {
         filePath = Paths.get(filePathStr);
         if (Files.notExists(filePath)) {
@@ -32,6 +37,12 @@ public class FileManager {
         Files.createFile(filePath);
     }
 
+    /**
+     * Serialise the tasks in the task list to a data string to be written to the file
+     * @param taskList Task list
+     * @return Data string
+     * @throws ChirpException
+     */
     private String serialiseTasks(TaskList taskList) throws ChirpException {
         StringBuilder data = new StringBuilder();
         for (int i = 0; i < taskList.getNumOfTasks(); i++) {
@@ -41,6 +52,12 @@ public class FileManager {
         return data.toString();
     }
 
+    /**
+     * Given a data string of a task, deserialise it to a Task object
+     * @param data Data string of the task
+     * @return Deserialised task
+     * @throws ChirpException
+     */
     private Task deserialiseTask(String data) throws ChirpException {
         if (data.isEmpty()) {
             throw new ChirpException.CorruptedFile("Empty task data!");
@@ -59,11 +76,23 @@ public class FileManager {
         throw new ChirpException.CorruptedFile("Invalid Task Tag!");
     }
 
+    /**
+     * Save the serialised data of the tasks into the task data file
+     * @param taskList task list to save
+     * @throws IOException
+     * @throws ChirpException
+     */
     public void saveTasks(TaskList taskList) throws IOException, ChirpException {
         String data = serialiseTasks(taskList);
         Files.write(filePath, data.getBytes(), StandardOpenOption.TRUNCATE_EXISTING);
     }
 
+    /**
+     * Loads the tasks stored in the task data file
+     * @return Tasklist of the deserialised tasks
+     * @throws ChirpException
+     * @throws IOException
+     */
     public TaskList loadTasks() throws ChirpException, IOException {
         TaskList taskList = new TaskList();
         BufferedReader reader = Files.newBufferedReader(filePath);

@@ -46,6 +46,13 @@ public class Parser {
         }
     }
 
+    /**
+     * Converts a yyyy-MM-dd string format to LocalDate type
+     * @param data Input string
+     * @param attribute Attribute name
+     * @return LocalDate value
+     * @throws ChirpException
+     */
     public static LocalDate convertDateAttr(String data, String attribute) throws ChirpException {
         try {
             return LocalDate.parse(data);
@@ -54,6 +61,12 @@ public class Parser {
         }
     }
 
+    /**
+     * Parsers the user input string into a Action to be executed
+     * @param input User input
+     * @return A action class containing the relevant data to be executed
+     * @throws ChirpException
+     */
     public static Action parse(String input) throws ChirpException {
         Scanner inputSc = new Scanner(input);
         Command command = Command.fromString(inputSc.next());

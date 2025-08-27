@@ -10,6 +10,11 @@ import chirp.tasks.TaskList;
 public class ListAction extends Action {
     private LocalDate date;
 
+    /**
+     * Create ListAction from user input
+     * @param input User input to extract date filter
+     * @throws ChirpException
+     */
     public ListAction(String input) throws ChirpException {
         String dateStr = Parser.extractAttribute(input, Attribute.ON.getTag());
         date = null;
@@ -18,6 +23,11 @@ public class ListAction extends Action {
         }
     }
 
+    /**
+     * List the tasks in the task list filtered by date
+     * @param taskList List of tasks
+     * @param ui UI interface
+     */
     @Override
     public void execute(TaskList taskList, Ui ui) {
         ui.printMessage(taskList.displayStr(date));

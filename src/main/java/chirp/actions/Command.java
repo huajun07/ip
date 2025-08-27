@@ -17,6 +17,9 @@ public enum Command {
         this.keyword = keyword;
     }
 
+    /**
+     * @return Underlying string of the Command Enum
+     */
     public String getKeyword() {
         return keyword;
     }

@@ -10,6 +10,9 @@ public enum Attribute {
         this.tag = tag;
     }
 
+    /**
+     * @return Underlying string of attribute tag
+     */
     public String getTag() {
         return tag;
     }
