@@ -5,6 +5,7 @@ import chirp.tasks.Deadline;
 import chirp.tasks.Event;
 import chirp.tasks.TaskList;
 import chirp.tasks.Todo;
+
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FileManagerTest {
     private final String filePath = "data/test.txt";
+
     @Test
     public void emptyFileTest() throws IOException, ChirpException {
         deleteFile();

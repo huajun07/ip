@@ -1,6 +1,7 @@
 package chirp.tasks;
 
 import chirp.exceptions.ChirpException;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

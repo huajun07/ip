@@ -63,15 +63,15 @@ public class FileManager {
             throw new ChirpException.CorruptedFile("Empty task data!");
         }
         switch (data.substring(0, 1)) {
-            case Deadline.tag -> {
-                return Deadline.deserialise(data);
-            }
-            case Event.tag -> {
-                return Event.deserialise(data);
-            }
-            case Todo.tag -> {
-                return Todo.deserialise(data);
-            }
+        case Deadline.tag -> {
+            return Deadline.deserialise(data);
+        }
+        case Event.tag -> {
+            return Event.deserialise(data);
+        }
+        case Todo.tag -> {
+            return Todo.deserialise(data);
+        }
         }
         throw new ChirpException.CorruptedFile("Invalid Task Tag!");
     }

@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParserTest {
     @Test
-    public void findAttributeTest(){
+    public void findAttributeTest() {
         assertEquals("here maybe",
                 Parser.extractAttribute("deadline smth /fid random /at here maybe", "/at"));
         assertEquals("random 2 3",
@@ -14,8 +14,10 @@ public class ParserTest {
     }
 
     @Test
-    public void attributeNotFoundTest(){
-        assertEquals("", Parser.extractAttribute("/find /find /find /smth /else", "/find"));
-        assertEquals("", Parser.extractAttribute("deadline smth /fid random /finde else", "/find"));
+    public void attributeNotFoundTest() {
+        assertEquals("",
+                Parser.extractAttribute("/find /find /find /smth /else", "/find"));
+        assertEquals("",
+                Parser.extractAttribute("deadline smth /fid random /finde else", "/find"));
     }
 }

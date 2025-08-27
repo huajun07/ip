@@ -1,4 +1,5 @@
 package chirp.actions;
+
 import chirp.exceptions.ChirpException;
 
 public enum Command {
@@ -26,6 +27,7 @@ public enum Command {
 
     /**
      * Convert string keyword to command enum
+     *
      * @param input the keyword
      * @return the corresponding command enum
      * @throws ChirpException If input is not a valid keyword

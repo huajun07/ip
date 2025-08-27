@@ -1,4 +1,5 @@
 package chirp.io;
+
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -15,11 +16,12 @@ import chirp.exceptions.ChirpException;
 public class Parser {
     /**
      * Given an input string extract attribute string
-     * @param input The input string
+     *
+     * @param input     The input string
      * @param attribute Attribute to search for
      * @return String immediately after the attribute in the input string
-     *         until delimiter of / is reached. If the attribute is not found
-     *         an empty string is returned.
+     * until delimiter of / is reached. If the attribute is not found
+     * an empty string is returned.
      */
     public static String extractAttribute(String input, String attribute) {
         int startIndex = input.indexOf(attribute);
@@ -71,26 +73,26 @@ public class Parser {
         Scanner inputSc = new Scanner(input);
         Command command = Command.fromString(inputSc.next());
         switch (command) {
-            case LIST -> {
-                // List tasks
-                return new ListAction(input);
-            }
-            case MARK, UNMARK -> {
-                // Mark / Unmark task
-                return new MarkAction(command, input);
-            }
-            case DELETE -> {
-                // Delete task
-                return new DeleteAction(input);
-            }
-            case TODO, DEADLINE, EVENT -> {
-                // Add task
-                return new AddAction(command, input);
-            }
-            case BYE -> {
-                // Exit chat bot
-                return new ExitAction();
-            }
+        case LIST -> {
+            // List tasks
+            return new ListAction(input);
+        }
+        case MARK, UNMARK -> {
+            // Mark / Unmark task
+            return new MarkAction(command, input);
+        }
+        case DELETE -> {
+            // Delete task
+            return new DeleteAction(input);
+        }
+        case TODO, DEADLINE, EVENT -> {
+            // Add task
+            return new AddAction(command, input);
+        }
+        case BYE -> {
+            // Exit chat bot
+            return new ExitAction();
+        }
         }
         throw new ChirpException.InvalidCommand();
     }

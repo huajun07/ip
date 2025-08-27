@@ -1,4 +1,5 @@
 package chirp.exceptions;
+
 public class ChirpException extends Exception {
     /**
      * Base checked exceptions for Chirp Bot
