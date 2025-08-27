@@ -8,6 +8,7 @@ import chirp.actions.Action;
 import chirp.actions.AddAction;
 import chirp.actions.DeleteAction;
 import chirp.actions.ExitAction;
+import chirp.actions.FindAction;
 import chirp.actions.ListAction;
 import chirp.actions.MarkAction;
 import chirp.actions.Command;
@@ -76,6 +77,10 @@ public class Parser {
         case LIST -> {
             // List tasks
             return new ListAction(input);
+        }
+        case FIND -> {
+            // Find tasks with filter string
+            return new FindAction(input);
         }
         case MARK, UNMARK -> {
             // Mark / Unmark task

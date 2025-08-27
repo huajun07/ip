@@ -19,7 +19,7 @@
  Currently 4 tasks in the task list.
 ------------------------------------------------------------
 > ------------------------------------------------------------
- Invalid Input: Attribute /by tmr is invalid: Not in yyyy-MM-dd format.
+ Invalid Input: Attribute /by "tmr" is invalid: Not in yyyy-MM-dd format.
  Please try again!
 ------------------------------------------------------------
 > ------------------------------------------------------------
@@ -42,8 +42,18 @@
 1. [T][ ] review book
 ------------------------------------------------------------
 > ------------------------------------------------------------
- Invalid Input: Attribute /on later is invalid: Not in yyyy-MM-dd format.
+ Invalid Input: Attribute /on "later" is invalid: Not in yyyy-MM-dd format.
  Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
+ Invalid Input: Attribute find "" is invalid: Empty find filter
+ Please try again!
+------------------------------------------------------------
+> ------------------------------------------------------------
+Here are the matching tasks in your list:
+1. [T][ ] review book
+2. [D][ ] return book (by: 2025-12-02)
+4. [D][ ] return book again (by: 2025-12-07)
 ------------------------------------------------------------
 > ------------------------------------------------------------
  Delete task: [D][ ] return book (by: 2025-12-02)

@@ -21,10 +21,10 @@ public class Event extends Task {
     public Event(String description, String startTime, String endTime) throws ChirpException {
         super(description);
         if (startTime.isEmpty()) {
-            throw new ChirpException.EmptyAttributeException("event", Attribute.FROM.getTag());
+            throw new ChirpException.TaskEmptyAttributeException("event", Attribute.FROM.getTag());
         }
         if (endTime.isEmpty()) {
-            throw new ChirpException.EmptyAttributeException("event", Attribute.TO.getTag());
+            throw new ChirpException.TaskEmptyAttributeException("event", Attribute.TO.getTag());
         }
         this.startTime = Parser.convertDateAttr(startTime, Attribute.FROM.getTag());
         this.endTime = Parser.convertDateAttr(endTime, Attribute.TO.getTag());

@@ -15,7 +15,7 @@ public abstract class Task {
      */
     public Task(String description) throws ChirpException {
         if (description.isEmpty()) {
-            throw new ChirpException.EmptyAttributeException("basic", "description");
+            throw new ChirpException.TaskEmptyAttributeException("basic", "description");
         }
         this.description = description;
         this.isDone = false;
@@ -72,6 +72,14 @@ public abstract class Task {
      */
     protected boolean validForDate(LocalDate date) {
         return true;
+    }
+    
+    /**
+     * @param filter Filter string
+     * @return True if the task description contains the filter string
+     */
+    public boolean containsStr(String filter) {
+        return description.toLowerCase().contains(filter.toLowerCase());
     }
 
     /**
