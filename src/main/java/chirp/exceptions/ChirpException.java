@@ -10,8 +10,8 @@ public class ChirpException extends Exception {
         }
     }
 
-    public static class EmptyAttributeException extends ChirpException {
-        public EmptyAttributeException(String taskType, String attribute) {
+    public static class TaskEmptyAttributeException extends ChirpException {
+        public TaskEmptyAttributeException(String taskType, String attribute) {
             super("The " + attribute + " attribute of a " + taskType + " task cannot be empty!");
         }
     }
@@ -30,7 +30,7 @@ public class ChirpException extends Exception {
 
     public static class InvalidAttribute extends ChirpException {
         public InvalidAttribute(String data, String attribute, String reason) {
-            super(String.format("Attribute %s %s is invalid: %s", attribute, data, reason));
+            super(String.format("Attribute %s \"%s\" is invalid: %s", attribute, data, reason));
         }
     }
 }

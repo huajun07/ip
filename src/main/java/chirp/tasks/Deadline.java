@@ -12,7 +12,7 @@ public class Deadline extends Task {
     public Deadline(String description, String endTime) throws ChirpException {
         super(description);
         if (endTime.isEmpty()) {
-            throw new ChirpException.EmptyAttributeException("event", Attribute.BY.getTag());
+            throw new ChirpException.TaskEmptyAttributeException("event", Attribute.BY.getTag());
         }
         this.endTime = Parser.convertDateAttr(endTime, Attribute.BY.getTag());
     }

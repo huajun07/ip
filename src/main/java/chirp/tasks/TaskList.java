@@ -67,6 +67,21 @@ public class TaskList {
         return data.toString();
     }
 
+    /**
+     * @param filter Filter string
+     * @return String containing list of tasks that contains the filter
+     * string in the descriptions.
+     */
+    public String displayStr(String filter) {
+        StringBuilder data = new StringBuilder();
+        for (int i = 0; i < getNumOfTasks(); i++) {
+            if (tasks.get(i).containsStr(filter)) {
+                data.append(String.format("%d. %s\n", i + 1, tasks.get(i)));
+            }
+        }
+        return data.toString();
+    }
+
     private void checkValidIdx(int idx) throws ChirpException {
         if (idx < 0 || idx >= getNumOfTasks()) {
             throw new ChirpException.TaskListOutOfBoundsException(idx, getNumOfTasks());
