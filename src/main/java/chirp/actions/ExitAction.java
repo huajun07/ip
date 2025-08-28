@@ -7,8 +7,9 @@ public class ExitAction extends Action {
 
     /**
      * Terminate the chat bot
+     *
      * @param taskList List of tasks
-     * @param ui UI interface
+     * @param ui       UI interface
      */
     @Override
     public void execute(TaskList taskList, Ui ui) {

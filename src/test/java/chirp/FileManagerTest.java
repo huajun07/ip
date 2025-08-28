@@ -1,20 +1,19 @@
 package chirp;
 
-import chirp.exceptions.ChirpException;
-import chirp.tasks.Deadline;
-import chirp.tasks.Event;
-import chirp.tasks.TaskList;
-import chirp.tasks.Todo;
-
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
+
+import chirp.exceptions.ChirpException;
+import chirp.tasks.Deadline;
+import chirp.tasks.Event;
+import chirp.tasks.TaskList;
+import chirp.tasks.Todo;
 
 public class FileManagerTest {
     private final String filePath = "data/test.txt";

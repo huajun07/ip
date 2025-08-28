@@ -3,27 +3,12 @@ package chirp.actions;
 import chirp.exceptions.ChirpException;
 
 public enum Command {
-    BYE("bye"),
-    LIST("list"),
-    MARK("mark"),
-    UNMARK("unmark"),
-    DELETE("delete"),
-    DEADLINE("deadline"),
-    EVENT("event"),
-    TODO("todo"),
-    FIND("find");
+    BYE("bye"), LIST("list"), MARK("mark"), UNMARK("unmark"), DELETE("delete"), DEADLINE("deadline"), EVENT("event"), TODO("todo"), FIND("find");
 
     private final String keyword;
 
     Command(String keyword) {
         this.keyword = keyword;
-    }
-
-    /**
-     * @return Underlying string of the Command Enum
-     */
-    public String getKeyword() {
-        return keyword;
     }
 
     /**
@@ -40,5 +25,12 @@ public enum Command {
             }
         }
         throw new ChirpException.InvalidCommand();
+    }
+
+    /**
+     * @return Underlying string of the Command Enum
+     */
+    public String getKeyword() {
+        return keyword;
     }
 }

@@ -1,11 +1,11 @@
 package chirp.tasks;
 
-import chirp.exceptions.ChirpException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import chirp.exceptions.ChirpException;
 
 public class TaskListTest {
     @Test

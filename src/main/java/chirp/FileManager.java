@@ -1,26 +1,25 @@
 package chirp;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.io.BufferedReader;
 import java.nio.file.StandardOpenOption;
 
-import chirp.tasks.TaskList;
-
-import chirp.tasks.Todo;
-
-import chirp.tasks.Task;
 import chirp.exceptions.ChirpException;
 import chirp.tasks.Deadline;
 import chirp.tasks.Event;
+import chirp.tasks.Task;
+import chirp.tasks.TaskList;
+import chirp.tasks.Todo;
 
 public class FileManager {
     private final Path filePath;
 
     /**
      * Initialise the file manager and creates data file if it doesnt exist
+     *
      * @param filePathStr File path
      * @throws IOException
      */
@@ -39,6 +38,7 @@ public class FileManager {
 
     /**
      * Serialise the tasks in the task list to a data string to be written to the file
+     *
      * @param taskList Task list
      * @return Data string
      * @throws ChirpException
@@ -54,6 +54,7 @@ public class FileManager {
 
     /**
      * Given a data string of a task, deserialise it to a Task object
+     *
      * @param data Data string of the task
      * @return Deserialised task
      * @throws ChirpException
@@ -78,6 +79,7 @@ public class FileManager {
 
     /**
      * Save the serialised data of the tasks into the task data file
+     *
      * @param taskList task list to save
      * @throws IOException
      * @throws ChirpException
@@ -89,6 +91,7 @@ public class FileManager {
 
     /**
      * Loads the tasks stored in the task data file
+     *
      * @return Tasklist of the deserialised tasks
      * @throws ChirpException
      * @throws IOException

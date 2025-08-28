@@ -12,8 +12,9 @@ public class Deadline extends Task {
 
     /**
      * Creates a task with a deadline
+     *
      * @param description Task description
-     * @param endTime Deadline in yyyy-MM-dd format
+     * @param endTime     Deadline in yyyy-MM-dd format
      * @throws ChirpException
      */
     public Deadline(String description, String endTime) throws ChirpException {
@@ -26,6 +27,7 @@ public class Deadline extends Task {
 
     /**
      * Deserialise a data string to a deadline task object
+     *
      * @param data Data string
      * @return The corresponding deadline task object
      * @throws ChirpException

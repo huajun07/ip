@@ -1,10 +1,7 @@
 package chirp.io;
 
 public enum Attribute {
-    FROM("/from"),
-    TO("/to"),
-    BY("/by"),
-    ON("/on");
+    FROM("/from"), TO("/to"), BY("/by"), ON("/on");
 
     private final String tag;
 

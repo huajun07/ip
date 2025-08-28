@@ -10,6 +10,7 @@ public abstract class Task {
 
     /**
      * Abstract task constructor
+     *
      * @param description Description of task
      * @throws ChirpException
      */
@@ -23,8 +24,9 @@ public abstract class Task {
 
     /**
      * Helper function to validate and extract the serialised data of the tasks
-     * @param data Serialised data string
-     * @param tag Task tag
+     *
+     * @param data        Serialised data string
+     * @param tag         Task tag
      * @param numOfFields Expected number of fields in data string
      * @return Array of fields extracted
      * @throws ChirpException.CorruptedFile
@@ -51,6 +53,7 @@ public abstract class Task {
 
     /**
      * Setter function of whether a task has been done
+     *
      * @param isDone Set value
      */
     public void setDone(boolean isDone) {
@@ -59,6 +62,7 @@ public abstract class Task {
 
     /**
      * Alternative setter of isDone using serialised string value
+     *
      * @param data Either "X" or "O"
      */
     protected void setDone(String data) {
@@ -67,13 +71,14 @@ public abstract class Task {
 
     /**
      * Function to be overriden to determine if a date filter applies to the task
+     *
      * @param date Date filter
      * @return True for generic task
      */
     protected boolean validForDate(LocalDate date) {
         return true;
     }
-    
+
     /**
      * @param filter Filter string
      * @return True if the task description contains the filter string
@@ -92,6 +97,7 @@ public abstract class Task {
 
     /**
      * Seralises task to data string
+     *
      * @return Data string
      */
     public abstract String serialise();

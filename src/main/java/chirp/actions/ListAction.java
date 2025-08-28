@@ -13,6 +13,7 @@ public class ListAction extends Action {
 
     /**
      * Create ListAction from user input
+     *
      * @param input User input to extract date filter
      * @throws ChirpException
      */
@@ -26,8 +27,9 @@ public class ListAction extends Action {
 
     /**
      * List the tasks in the task list filtered by date
+     *
      * @param taskList List of tasks
-     * @param ui UI interface
+     * @param ui       UI interface
      */
     @Override
     public void execute(TaskList taskList, Ui ui) {

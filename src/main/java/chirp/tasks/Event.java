@@ -13,9 +13,10 @@ public class Event extends Task {
 
     /**
      * Creates a task with a active period
+     *
      * @param description Task description
-     * @param startTime Start date in yyyy-MM-dd format
-     * @param endTime End date in yyyy-MM-dd format
+     * @param startTime   Start date in yyyy-MM-dd format
+     * @param endTime     End date in yyyy-MM-dd format
      * @throws ChirpException
      */
     public Event(String description, String startTime, String endTime) throws ChirpException {
@@ -32,6 +33,7 @@ public class Event extends Task {
 
     /**
      * Deserialise a data string to a event task object
+     *
      * @param data Data string
      * @return The corresponding event task object
      * @throws ChirpException
@@ -66,7 +68,6 @@ public class Event extends Task {
     @Override
     public boolean validForDate(LocalDate date) {
         if (date == null) return true;
-        return (date.isAfter(startTime) && date.isBefore(endTime))
-                || date.isEqual(startTime) || date.isEqual(endTime);
+        return (date.isAfter(startTime) && date.isBefore(endTime)) || date.isEqual(startTime) || date.isEqual(endTime);
     }
 }

@@ -14,6 +14,7 @@ public class Chirp {
 
     /**
      * Initialises chatbot before being run
+     *
      * @param filePath Path to load task data file from
      */
     public Chirp(String filePath) {
@@ -30,6 +31,10 @@ public class Chirp {
             ui.fatalError(e.getMessage());
             running = false;
         }
+    }
+
+    public static void main(String[] args) {
+        new Chirp("data/tasks.txt").run();
     }
 
     /**
@@ -54,9 +59,5 @@ public class Chirp {
         } catch (Exception e) {
             ui.fatalError(e.getMessage());
         }
-    }
-
-    public static void main(String[] args) {
-        new Chirp("data/tasks.txt").run();
     }
 }

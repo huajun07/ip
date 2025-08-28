@@ -12,8 +12,9 @@ public class MarkAction extends Action {
 
     /**
      * Create MarkAction from user input
+     *
      * @param command Command used to determine whether to mark or unmark
-     * @param input User input to extract date filter
+     * @param input   User input to extract date filter
      * @throws ChirpException
      */
     public MarkAction(Command command, String input) {
@@ -25,8 +26,9 @@ public class MarkAction extends Action {
 
     /**
      * Mark/Unmark task
+     *
      * @param taskList List of tasks
-     * @param ui UI interface
+     * @param ui       UI interface
      */
     @Override
     public void execute(TaskList taskList, Ui ui) throws ChirpException {

@@ -7,6 +7,7 @@ public class Todo extends Task {
 
     /**
      * Creates a task to be done
+     *
      * @param description Task description
      * @throws ChirpException
      */
@@ -16,6 +17,7 @@ public class Todo extends Task {
 
     /**
      * Deserialise a data string to a Todo task object
+     *
      * @param data Data string
      * @return The corresponding Todo task object
      * @throws ChirpException

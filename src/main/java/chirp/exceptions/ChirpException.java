@@ -3,6 +3,7 @@ package chirp.exceptions;
 public class ChirpException extends Exception {
     /**
      * Base checked exceptions for Chirp Bot
+     *
      * @param reason Reason for the exception
      */
     public ChirpException(String reason) {
@@ -22,7 +23,8 @@ public class ChirpException extends Exception {
     public static class TaskEmptyAttributeException extends ChirpException {
         /**
          * Exception for missing attribute
-         * @param taskType What type of task requires this attribute
+         *
+         * @param taskType  What type of task requires this attribute
          * @param attribute Attribute tag
          */
         public TaskEmptyAttributeException(String taskType, String attribute) {
@@ -33,7 +35,8 @@ public class ChirpException extends Exception {
     public static class TaskListOutOfBoundsException extends ChirpException {
         /**
          * Exception for out of bounds index access for tasklist
-         * @param idx Invalid index used
+         *
+         * @param idx  Invalid index used
          * @param size Size of task list
          */
         public TaskListOutOfBoundsException(int idx, int size) {
@@ -44,6 +47,7 @@ public class ChirpException extends Exception {
     public static class CorruptedFile extends ChirpException {
         /**
          * Exception for corrupted task data file
+         *
          * @param reason Type of file corruption
          */
         public CorruptedFile(String reason) {
@@ -54,9 +58,10 @@ public class ChirpException extends Exception {
     public static class InvalidAttribute extends ChirpException {
         /**
          * Exception for invalid attribute type
-         * @param data Attribute value in input
+         *
+         * @param data      Attribute value in input
          * @param attribute Attribute name
-         * @param reason Reason for invalid attribute
+         * @param reason    Reason for invalid attribute
          */
         public InvalidAttribute(String data, String attribute, String reason) {
             super(String.format("Attribute %s \"%s\" is invalid: %s", attribute, data, reason));

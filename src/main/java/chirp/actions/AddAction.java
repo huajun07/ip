@@ -15,8 +15,9 @@ public class AddAction extends Action {
 
     /**
      * Create AddAction from user input
+     *
      * @param command Command used to determine what type of task to be added
-     * @param input Exact input where attributes of the task can be extracted
+     * @param input   Exact input where attributes of the task can be extracted
      * @throws ChirpException
      */
     public AddAction(Command command, String input) throws ChirpException {
@@ -44,8 +45,9 @@ public class AddAction extends Action {
 
     /**
      * Adds task in the action to the task list
+     *
      * @param taskList List of tasks
-     * @param ui UI interface
+     * @param ui       UI interface
      */
     @Override
     public void execute(TaskList taskList, Ui ui) {

@@ -12,6 +12,7 @@ public class DeleteAction extends Action {
 
     /**
      * Create DeleteAction from user input
+     *
      * @param input User input to extract task index
      */
     public DeleteAction(String input) {
@@ -22,8 +23,9 @@ public class DeleteAction extends Action {
 
     /**
      * Delete a task from the task list
+     *
      * @param taskList List of tasks
-     * @param ui UI interface
+     * @param ui       UI interface
      */
     @Override
     public void execute(TaskList taskList, Ui ui) throws ChirpException {

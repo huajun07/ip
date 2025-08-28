@@ -8,14 +8,16 @@ public abstract class Action {
 
     /**
      * Abstract method of the action's execution
+     *
      * @param taskList List of tasks
-     * @param ui UI interface
+     * @param ui       UI interface
      * @throws ChirpException
      */
     public abstract void execute(TaskList taskList, Ui ui) throws ChirpException;
 
     /**
      * Abstract method of whether an action is an exiting action
+     *
      * @return True if action terminates the chat
      */
     public boolean isExit() {
