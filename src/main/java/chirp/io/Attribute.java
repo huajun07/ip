@@ -1,5 +1,8 @@
 package chirp.io;
 
+/**
+ * Enum of attribute values in input string
+ */
 public enum Attribute {
     FROM("/from"), TO("/to"), BY("/by"), ON("/on");
 

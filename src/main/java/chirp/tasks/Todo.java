@@ -2,8 +2,11 @@ package chirp.tasks;
 
 import chirp.exceptions.ChirpException;
 
+/**
+ * Todo Task Object
+ */
 public class Todo extends Task {
-    public static final String tag = "T";
+    public static final String TAG = "T";
 
     /**
      * Creates a task to be done
@@ -23,7 +26,7 @@ public class Todo extends Task {
      * @throws ChirpException
      */
     public static Todo deserialise(String data) throws ChirpException {
-        String[] fields = deserialiseFields(data, tag, 3);
+        String[] fields = deserialiseFields(data, TAG, 3);
         Todo task = new Todo(fields[2]);
         task.setDone(fields[1]);
         return task;
@@ -34,7 +37,7 @@ public class Todo extends Task {
      */
     @Override
     public String serialise() {
-        return String.format("%s|%s|%s", tag, isDone ? "X" : "O", description);
+        return String.format("%s|%s|%s", TAG, isDone ? "X" : "O", description);
     }
 
     /**
@@ -42,6 +45,6 @@ public class Todo extends Task {
      */
     @Override
     public String toString() {
-        return String.format("[%s]%s", tag, super.toString());
+        return String.format("[%s]%s", TAG, super.toString());
     }
 }

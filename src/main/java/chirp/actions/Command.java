@@ -1,8 +1,13 @@
 package chirp.actions;
 import chirp.exceptions.InvalidCommandException;
 
+/**
+ * Enum of possible user commands
+ */
 public enum Command {
-    BYE("bye"), LIST("list"), MARK("mark"), UNMARK("unmark"), DELETE("delete"), DEADLINE("deadline"), EVENT("event"), TODO("todo"), FIND("find");
+    BYE("bye"), LIST("list"), MARK("mark"), UNMARK("unmark"),
+    DELETE("delete"), DEADLINE("deadline"), EVENT("event"), TODO("todo"),
+    FIND("find");
 
     private final String keyword;
 

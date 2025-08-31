@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import chirp.exceptions.ChirpException;
 import chirp.exceptions.TaskListOutOfBoundsException;
 
+/**
+ * Object to manage list of tasks
+ */
 public class TaskList {
 
     private ArrayList<Task> tasks; // List of task descriptions
@@ -26,6 +29,12 @@ public class TaskList {
         tasks.add(task);
     }
 
+    /**
+     * Delete a task from the list
+     * @param idx 0-Index of the task to delete
+     * @return Task object deleted
+     * @throws ChirpException
+     */
     public Task deleteTask(int idx) throws ChirpException {
         checkValidIdx(idx);
         return tasks.remove(idx);
@@ -78,7 +87,7 @@ public class TaskList {
     /**
      * @param filter Filter string
      * @return String containing list of tasks that contains the filter
-     * string in the descriptions.
+     *     string in the descriptions.
      */
     public String displayStr(String filter) {
         StringBuilder data = new StringBuilder();

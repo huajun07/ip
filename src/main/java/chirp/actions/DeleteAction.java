@@ -7,6 +7,9 @@ import chirp.io.Ui;
 import chirp.tasks.Task;
 import chirp.tasks.TaskList;
 
+/**
+ * Action to delete a task from the list
+ */
 public class DeleteAction extends Action {
     private int index;
 

@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 import chirp.tasks.TaskList;
 
+/**
+ * Helper class to manage input and output with the user
+ */
 public class Ui {
     private static final String NAME = "Chirp";
     private static final Scanner sc = new Scanner(System.in);
 
     /**
-     * Helper class to manage input and output with the user
+     * Create Ui Object
      */
     public Ui() {
     }

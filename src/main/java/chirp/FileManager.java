@@ -15,6 +15,9 @@ import chirp.tasks.Task;
 import chirp.tasks.TaskList;
 import chirp.tasks.Todo;
 
+/**
+ * Helper class to manager task data file
+ */
 public class FileManager {
     private final Path filePath;
 
@@ -65,17 +68,19 @@ public class FileManager {
             throw new CorruptedFileException("Empty task data!");
         }
         switch (data.substring(0, 1)) {
-        case Deadline.tag -> {
+        case Deadline.TAG -> {
             return Deadline.deserialise(data);
         }
-        case Event.tag -> {
+        case Event.TAG -> {
             return Event.deserialise(data);
         }
-        case Todo.tag -> {
+        case Todo.TAG -> {
             return Todo.deserialise(data);
         }
+        default -> {
+            throw new CorruptedFileException("Invalid Task Tag!");
         }
-        throw new CorruptedFileException("Invalid Task Tag!");
+        }
     }
 
     /**

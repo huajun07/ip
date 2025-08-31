@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import chirp.exceptions.ChirpException;
+import chirp.exceptions.TaskListOutOfBoundsException;
 
 public class TaskListTest {
     @Test
@@ -27,10 +28,10 @@ public class TaskListTest {
         assertEquals("[T][X] Test1", taskList.getTask(0).toString());
         taskList.markTask(0, false);
         assertEquals("[T][ ] Test1", taskList.getTask(0).toString());
-        assertThrows(ChirpException.TaskListOutOfBoundsException.class, () -> {
+        assertThrows(TaskListOutOfBoundsException.class, () -> {
             taskList.markTask(-1, false);
         });
-        assertThrows(ChirpException.TaskListOutOfBoundsException.class, () -> {
+        assertThrows(TaskListOutOfBoundsException.class, () -> {
             taskList.markTask(1, false);
         });
     }
@@ -46,10 +47,10 @@ public class TaskListTest {
         assertEquals(2, taskList.getNumOfTasks());
         assertEquals("[T][ ] Test1", taskList.getTask(0).toString());
         assertEquals("[T][ ] Test3", taskList.getTask(1).toString());
-        assertThrows(ChirpException.TaskListOutOfBoundsException.class, () -> {
+        assertThrows(TaskListOutOfBoundsException.class, () -> {
             taskList.deleteTask(-1);
         });
-        assertThrows(ChirpException.TaskListOutOfBoundsException.class, () -> {
+        assertThrows(TaskListOutOfBoundsException.class, () -> {
             taskList.deleteTask(2);
         });
     }
