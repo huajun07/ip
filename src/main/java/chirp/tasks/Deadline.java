@@ -3,6 +3,7 @@ package chirp.tasks;
 import java.time.LocalDate;
 
 import chirp.exceptions.ChirpException;
+import chirp.exceptions.TaskEmptyAttributeException;
 import chirp.io.Attribute;
 import chirp.io.Parser;
 
@@ -20,7 +21,7 @@ public class Deadline extends Task {
     public Deadline(String description, String endTime) throws ChirpException {
         super(description);
         if (endTime.isEmpty()) {
-            throw new ChirpException.TaskEmptyAttributeException("event", Attribute.BY.getTag());
+            throw new TaskEmptyAttributeException("event", Attribute.BY.getTag());
         }
         this.endTime = Parser.convertDateAttr(endTime, Attribute.BY.getTag());
     }

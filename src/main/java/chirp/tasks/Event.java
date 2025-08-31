@@ -3,6 +3,7 @@ package chirp.tasks;
 import java.time.LocalDate;
 
 import chirp.exceptions.ChirpException;
+import chirp.exceptions.TaskEmptyAttributeException;
 import chirp.io.Attribute;
 import chirp.io.Parser;
 
@@ -22,10 +23,10 @@ public class Event extends Task {
     public Event(String description, String startTime, String endTime) throws ChirpException {
         super(description);
         if (startTime.isEmpty()) {
-            throw new ChirpException.TaskEmptyAttributeException("event", Attribute.FROM.getTag());
+            throw new TaskEmptyAttributeException("event", Attribute.FROM.getTag());
         }
         if (endTime.isEmpty()) {
-            throw new ChirpException.TaskEmptyAttributeException("event", Attribute.TO.getTag());
+            throw new TaskEmptyAttributeException("event", Attribute.TO.getTag());
         }
         this.startTime = Parser.convertDateAttr(startTime, Attribute.FROM.getTag());
         this.endTime = Parser.convertDateAttr(endTime, Attribute.TO.getTag());

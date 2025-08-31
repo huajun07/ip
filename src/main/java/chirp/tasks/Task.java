@@ -3,6 +3,8 @@ package chirp.tasks;
 import java.time.LocalDate;
 
 import chirp.exceptions.ChirpException;
+import chirp.exceptions.CorruptedFileException;
+import chirp.exceptions.TaskEmptyAttributeException;
 
 public abstract class Task {
     protected String description;
@@ -16,7 +18,7 @@ public abstract class Task {
      */
     public Task(String description) throws ChirpException {
         if (description.isEmpty()) {
-            throw new ChirpException.TaskEmptyAttributeException("basic", "description");
+            throw new TaskEmptyAttributeException("basic", "description");
         }
         this.description = description;
         this.isDone = false;
@@ -29,19 +31,19 @@ public abstract class Task {
      * @param tag         Task tag
      * @param numOfFields Expected number of fields in data string
      * @return Array of fields extracted
-     * @throws ChirpException.CorruptedFile
+     * @throws CorruptedFileException
      */
-    protected static String[] deserialiseFields(String data, String tag, int numOfFields) throws ChirpException.CorruptedFile {
+    protected static String[] deserialiseFields(String data, String tag, int numOfFields) throws CorruptedFileException {
         String[] fields = data.split("\\|");
         if (fields.length != numOfFields) {
-            throw new ChirpException.CorruptedFile("Wrong Number of Fields for tag " + tag);
+            throw new CorruptedFileException("Wrong Number of Fields for tag " + tag);
         }
         if (!fields[0].equals(tag)) {
-            throw new ChirpException.CorruptedFile("Invalid Tag");
+            throw new CorruptedFileException("Invalid Tag");
         }
         for (String field : fields) {
             if (field.isEmpty()) {
-                throw new ChirpException.CorruptedFile("Empty Field");
+                throw new CorruptedFileException("Empty Field");
             }
         }
         return fields;

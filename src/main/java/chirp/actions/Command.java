@@ -1,6 +1,5 @@
 package chirp.actions;
-
-import chirp.exceptions.ChirpException;
+import chirp.exceptions.InvalidCommandException;
 
 public enum Command {
     BYE("bye"), LIST("list"), MARK("mark"), UNMARK("unmark"), DELETE("delete"), DEADLINE("deadline"), EVENT("event"), TODO("todo"), FIND("find");
@@ -16,15 +15,15 @@ public enum Command {
      *
      * @param input the keyword
      * @return the corresponding command enum
-     * @throws ChirpException If input is not a valid keyword
+     * @throws InvalidCommandException If input is not a valid keyword
      */
-    public static Command fromString(String input) throws ChirpException {
+    public static Command fromString(String input) throws InvalidCommandException {
         for (Command cmd : Command.values()) {
             if (cmd.keyword.equals(input)) {
                 return cmd;
             }
         }
-        throw new ChirpException.InvalidCommand();
+        throw new InvalidCommandException();
     }
 
     /**

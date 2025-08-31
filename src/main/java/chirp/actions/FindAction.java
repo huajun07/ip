@@ -1,6 +1,6 @@
 package chirp.actions;
 
-import chirp.exceptions.ChirpException;
+import chirp.exceptions.InvalidAttributeException;
 import chirp.io.Parser;
 import chirp.io.Ui;
 import chirp.tasks.TaskList;
@@ -12,12 +12,12 @@ public class FindAction extends Action {
      * Create FindAction from user input
      *
      * @param input User input to extract string filter
-     * @throws ChirpException
+     * @throws InvalidAttributeException
      */
-    public FindAction(String input) throws ChirpException {
+    public FindAction(String input) throws InvalidAttributeException {
         filter = Parser.extractAttribute(input, Command.FIND.getKeyword());
         if (filter.isEmpty()) {
-            throw new ChirpException.InvalidAttribute("", "find", "Empty find filter");
+            throw new InvalidAttributeException("", "find", "Empty find filter");
         }
     }
 

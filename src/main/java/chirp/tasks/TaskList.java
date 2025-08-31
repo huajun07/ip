@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import chirp.exceptions.ChirpException;
+import chirp.exceptions.TaskListOutOfBoundsException;
 
 public class TaskList {
 
@@ -89,9 +90,9 @@ public class TaskList {
         return data.toString();
     }
 
-    private void checkValidIdx(int idx) throws ChirpException {
+    private void checkValidIdx(int idx) throws TaskListOutOfBoundsException {
         if (idx < 0 || idx >= getNumOfTasks()) {
-            throw new ChirpException.TaskListOutOfBoundsException(idx, getNumOfTasks());
+            throw new TaskListOutOfBoundsException(idx, getNumOfTasks());
         }
     }
 }

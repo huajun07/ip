@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 import chirp.exceptions.ChirpException;
+import chirp.exceptions.CorruptedFileException;
 import chirp.tasks.Deadline;
 import chirp.tasks.Event;
 import chirp.tasks.Task;
@@ -61,7 +62,7 @@ public class FileManager {
      */
     private Task deserialiseTask(String data) throws ChirpException {
         if (data.isEmpty()) {
-            throw new ChirpException.CorruptedFile("Empty task data!");
+            throw new CorruptedFileException("Empty task data!");
         }
         switch (data.substring(0, 1)) {
         case Deadline.tag -> {
@@ -74,7 +75,7 @@ public class FileManager {
             return Todo.deserialise(data);
         }
         }
-        throw new ChirpException.CorruptedFile("Invalid Task Tag!");
+        throw new CorruptedFileException("Invalid Task Tag!");
     }
 
     /**

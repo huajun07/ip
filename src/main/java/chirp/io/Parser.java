@@ -13,6 +13,8 @@ import chirp.actions.FindAction;
 import chirp.actions.ListAction;
 import chirp.actions.MarkAction;
 import chirp.exceptions.ChirpException;
+import chirp.exceptions.InvalidAttributeException;
+import chirp.exceptions.InvalidCommandException;
 
 public class Parser {
     /**
@@ -55,13 +57,13 @@ public class Parser {
      * @param data      Input string
      * @param attribute Attribute name
      * @return LocalDate value
-     * @throws ChirpException
+     * @throws InvalidAttributeException
      */
-    public static LocalDate convertDateAttr(String data, String attribute) throws ChirpException {
+    public static LocalDate convertDateAttr(String data, String attribute) throws InvalidAttributeException {
         try {
             return LocalDate.parse(data);
         } catch (DateTimeException e) {
-            throw new ChirpException.InvalidAttribute(data, attribute, "Not in yyyy-MM-dd format.");
+            throw new InvalidAttributeException(data, attribute, "Not in yyyy-MM-dd format.");
         }
     }
 
@@ -101,6 +103,6 @@ public class Parser {
             return new ExitAction();
         }
         }
-        throw new ChirpException.InvalidCommand();
+        throw new InvalidCommandException();
     }
 }
