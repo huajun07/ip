@@ -6,6 +6,9 @@ import chirp.exceptions.ChirpException;
 import chirp.exceptions.CorruptedFileException;
 import chirp.exceptions.TaskEmptyAttributeException;
 
+/**
+ * Abstract base task object
+ */
 public abstract class Task {
     protected String description;
     protected boolean isDone;
@@ -27,15 +30,15 @@ public abstract class Task {
     /**
      * Helper function to validate and extract the serialised data of the tasks
      *
-     * @param data        Serialised data string
-     * @param tag         Task tag
-     * @param numOfFields Expected number of fields in data string
+     * @param data      Serialised data string
+     * @param tag       Task tag
+     * @param numFields Expected number of fields in data string
      * @return Array of fields extracted
      * @throws CorruptedFileException
      */
-    protected static String[] deserialiseFields(String data, String tag, int numOfFields) throws CorruptedFileException {
+    protected static String[] deserialiseFields(String data, String tag, int numFields) throws CorruptedFileException {
         String[] fields = data.split("\\|");
-        if (fields.length != numOfFields) {
+        if (fields.length != numFields) {
             throw new CorruptedFileException("Wrong Number of Fields for tag " + tag);
         }
         if (!fields[0].equals(tag)) {

@@ -1,8 +1,11 @@
 package chirp.exceptions;
 
+/**
+ * Exception for corrupted task data file
+ */
 public class CorruptedFileException extends ChirpException {
     /**
-     * Exception for corrupted task data file
+     * Creates CorruptedFileException
      *
      * @param reason Type of file corruption
      */

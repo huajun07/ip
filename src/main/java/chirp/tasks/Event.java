@@ -7,8 +7,11 @@ import chirp.exceptions.TaskEmptyAttributeException;
 import chirp.io.Attribute;
 import chirp.io.Parser;
 
+/**
+ * Event task object
+ */
 public class Event extends Task {
-    public static final String tag = "E";
+    public static final String TAG = "E";
     private LocalDate startTime;
     private LocalDate endTime;
 
@@ -40,7 +43,7 @@ public class Event extends Task {
      * @throws ChirpException
      */
     public static Event deserialise(String data) throws ChirpException {
-        String[] fields = deserialiseFields(data, tag, 5);
+        String[] fields = deserialiseFields(data, TAG, 5);
         Event task = new Event(fields[2], fields[3], fields[4]);
         task.setDone(fields[1]);
         return task;
@@ -51,7 +54,7 @@ public class Event extends Task {
      */
     @Override
     public String serialise() {
-        return String.format("%s|%s|%s|%s|%s", tag, isDone ? "X" : "O", description, startTime, endTime);
+        return String.format("%s|%s|%s|%s|%s", TAG, isDone ? "X" : "O", description, startTime, endTime);
     }
 
     /**
@@ -59,7 +62,7 @@ public class Event extends Task {
      */
     @Override
     public String toString() {
-        return String.format("[%s]%s (from: %s to: %s)", tag, super.toString(), startTime, endTime);
+        return String.format("[%s]%s (from: %s to: %s)", TAG, super.toString(), startTime, endTime);
     }
 
     /**
@@ -68,7 +71,9 @@ public class Event extends Task {
      */
     @Override
     public boolean validForDate(LocalDate date) {
-        if (date == null) return true;
+        if (date == null) {
+            return true;
+        }
         return (date.isAfter(startTime) && date.isBefore(endTime)) || date.isEqual(startTime) || date.isEqual(endTime);
     }
 }

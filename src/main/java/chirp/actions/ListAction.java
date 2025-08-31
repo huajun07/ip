@@ -8,6 +8,9 @@ import chirp.io.Parser;
 import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
+/**
+ * Action to list tasks
+ */
 public class ListAction extends Action {
     private LocalDate date;
 

@@ -7,8 +7,11 @@ import chirp.exceptions.TaskEmptyAttributeException;
 import chirp.io.Attribute;
 import chirp.io.Parser;
 
+/**
+ * Deadline task object
+ */
 public class Deadline extends Task {
-    public static final String tag = "D";
+    public static final String TAG = "D";
     private LocalDate endTime;
 
     /**
@@ -34,7 +37,7 @@ public class Deadline extends Task {
      * @throws ChirpException
      */
     public static Deadline deserialise(String data) throws ChirpException {
-        String[] fields = deserialiseFields(data, tag, 4);
+        String[] fields = deserialiseFields(data, TAG, 4);
         Deadline task = new Deadline(fields[2], fields[3]);
         task.setDone(fields[1]);
         return task;
@@ -45,7 +48,7 @@ public class Deadline extends Task {
      */
     @Override
     public String serialise() {
-        return String.format("%s|%s|%s|%s", tag, isDone ? "X" : "O", description, endTime);
+        return String.format("%s|%s|%s|%s", TAG, isDone ? "X" : "O", description, endTime);
     }
 
     /**
@@ -53,7 +56,7 @@ public class Deadline extends Task {
      */
     @Override
     public String toString() {
-        return String.format("[%s]%s (by: %s)", tag, super.toString(), endTime);
+        return String.format("[%s]%s (by: %s)", TAG, super.toString(), endTime);
     }
 
     /**
@@ -62,7 +65,9 @@ public class Deadline extends Task {
      */
     @Override
     public boolean validForDate(LocalDate date) {
-        if (date == null) return true;
+        if (date == null) {
+            return true;
+        }
         return date.isEqual(endTime);
     }
 }

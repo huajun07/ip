@@ -3,6 +3,9 @@ package chirp.actions;
 import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
+/**
+ * Action of exiting chat bot
+ */
 public class ExitAction extends Action {
 
     /**

@@ -10,6 +10,9 @@ import chirp.tasks.Task;
 import chirp.tasks.TaskList;
 import chirp.tasks.Todo;
 
+/**
+ * Action of adding task to list
+ */
 public class AddAction extends Action {
     private Task task;
 
@@ -39,6 +42,9 @@ public class AddAction extends Action {
             String startTime = Parser.extractAttribute(input, Attribute.FROM.getTag());
             String endTime = Parser.extractAttribute(input, Attribute.TO.getTag());
             task = new Event(description, startTime, endTime);
+        }
+        default -> {
+            throw new ChirpException("Unknown Error!");
         }
         }
     }

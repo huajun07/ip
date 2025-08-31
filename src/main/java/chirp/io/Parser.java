@@ -16,6 +16,9 @@ import chirp.exceptions.ChirpException;
 import chirp.exceptions.InvalidAttributeException;
 import chirp.exceptions.InvalidCommandException;
 
+/**
+ * Parser object to help with input processing
+ */
 public class Parser {
     /**
      * Given an input string extract attribute string
@@ -23,8 +26,8 @@ public class Parser {
      * @param input     The input string
      * @param attribute Attribute to search for
      * @return String immediately after the attribute in the input string
-     * until delimiter of / is reached. If the attribute is not found
-     * an empty string is returned.
+     *     until delimiter of / is reached. If the attribute is not found
+     *     an empty string is returned.
      */
     public static String extractAttribute(String input, String attribute) {
         int startIndex = input.indexOf(attribute);
@@ -102,7 +105,9 @@ public class Parser {
             // Exit chat bot
             return new ExitAction();
         }
+        default -> {
+            throw new InvalidCommandException();
         }
-        throw new InvalidCommandException();
+        }
     }
 }

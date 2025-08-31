@@ -4,6 +4,9 @@ import chirp.exceptions.ChirpException;
 import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
+/**
+ * Base abstract object of all actions
+ */
 public abstract class Action {
 
     /**

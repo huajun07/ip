@@ -5,6 +5,9 @@ import chirp.io.Parser;
 import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
+/**
+ * Action to filter tasks
+ */
 public class FindAction extends Action {
     private String filter;
 

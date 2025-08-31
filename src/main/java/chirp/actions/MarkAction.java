@@ -6,6 +6,9 @@ import chirp.exceptions.ChirpException;
 import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
+/**
+ * Action to mark a task as done or not done
+ */
 public class MarkAction extends Action {
     private boolean isDone;
     private int index;
