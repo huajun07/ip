@@ -21,10 +21,14 @@ public class Ui {
     /**
      * Display a message to the user
      *
-     * @param message Message to display
+     * @param messages Lines of messages to display
      */
-    public void printMessage(String message) {
-        window.sendChirpMessage(message);
+    public void printMessage(String... messages) {
+        StringBuilder response = new StringBuilder();
+        for (String message : messages) {
+            response.append(message + '\n');
+        }
+        window.sendChirpMessage(response.toString());
     }
 
     /**
@@ -33,8 +37,7 @@ public class Ui {
      * @param error The error message
      */
     public void fatalError(String error) {
-        String data = " FATAL: " + error + "\n" + " Shutting down...\n";
-        printMessage(data);
+        printMessage(" FATAL: ", error, " Shutting down...");
     }
 
     /**
@@ -44,8 +47,7 @@ public class Ui {
      * @param error The error message
      */
     public void loadingError(String error) {
-        String data = " Error in loading: " + error + "\n" + " Defaulting to empty task list.\n";
-        printMessage(data);
+        printMessage(" Error in loading: ", error, " Defaulting to empty task list.");
     }
 
     /**
@@ -54,23 +56,21 @@ public class Ui {
      * @param error The error message
      */
     public void inputError(String error) {
-        String data = " Invalid Input: " + error + "\n" + " Please try again!\n";
-        printMessage(data);
+        printMessage(" Invalid Input: ", error, " Please try again!");
     }
 
     /**
      * Helper function to print greeting message
      */
     public void greet() {
-        String data = " Hello! I'm " + NAME + "\n" + " What can I do for you?\n";
-        printMessage(data);
+        printMessage(" Hello! I'm " + NAME, " What can I do for you?");
     }
 
     /**
      * Helper function to print farewell message
      */
     public void exit() {
-        printMessage(" Bye. Hope to see you again soon!\n");
+        printMessage(" Bye. Hope to see you again soon!");
     }
 
     /**

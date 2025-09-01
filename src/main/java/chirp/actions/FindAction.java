@@ -32,6 +32,6 @@ public class FindAction extends Action {
      */
     @Override
     public void execute(TaskList taskList, Ui ui) {
-        ui.printMessage("Here are the matching tasks in your list:\n" + taskList.displayStr(filter));
+        ui.printMessage("Here are the matching tasks in your list:", taskList.displayStr(filter));
     }
 }
