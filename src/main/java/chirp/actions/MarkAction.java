@@ -36,6 +36,6 @@ public class MarkAction extends Action {
     @Override
     public void execute(TaskList taskList, Ui ui) throws ChirpException {
         taskList.markTask(index, isDone);
-        ui.printMessage(" Modified task: " + taskList.getTask(index) + "\n");
+        ui.printMessage("Modified task: " + taskList.getTask(index));
     }
 }

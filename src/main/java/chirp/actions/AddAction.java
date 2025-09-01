@@ -58,6 +58,6 @@ public class AddAction extends Action {
     @Override
     public void execute(TaskList taskList, Ui ui) {
         taskList.addTask(task);
-        ui.printMessage(" Added task: " + task + "\n" + ui.taskListCount(taskList) + "\n");
+        ui.printMessage("Added task: " + task, ui.taskListCount(taskList));
     }
 }
