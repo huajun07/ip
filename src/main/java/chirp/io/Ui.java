@@ -1,7 +1,5 @@
 package chirp.io;
 
-import java.util.Scanner;
-
 import chirp.tasks.TaskList;
 
 /**
@@ -9,19 +7,15 @@ import chirp.tasks.TaskList;
  */
 public class Ui {
     private static final String NAME = "Chirp";
-    private static final Scanner sc = new Scanner(System.in);
+    private MainWindow window;
 
     /**
      * Create Ui Object
+     *
+     * @param window Display window
      */
-    public Ui() {
-    }
-
-    /**
-     * Helper function to print a horizontal line
-     */
-    private void printLine() {
-        System.out.println("-".repeat(60));
+    public Ui(MainWindow window) {
+        this.window = window;
     }
 
     /**
@@ -30,19 +24,7 @@ public class Ui {
      * @param message Message to display
      */
     public void printMessage(String message) {
-        printLine();
-        System.out.print(message);
-        printLine();
-    }
-
-    /**
-     * Prompts the user for an input
-     *
-     * @return Input by user
-     */
-    public String prompt() {
-        System.out.print("> ");
-        return sc.nextLine();
+        window.sendChirpMessage(message);
     }
 
     /**
