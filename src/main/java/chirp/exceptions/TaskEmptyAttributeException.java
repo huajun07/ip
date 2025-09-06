@@ -1,11 +1,11 @@
 package chirp.exceptions;
 
 /**
- * Exception for missing attribute
+ * Represents exception for missing attribute
  */
 public class TaskEmptyAttributeException extends ChirpException {
     /**
-     * Create TaskEmptyAttributeException
+     * Creates TaskEmptyAttributeException
      *
      * @param taskType  What type of task requires this attribute
      * @param attribute Attribute tag

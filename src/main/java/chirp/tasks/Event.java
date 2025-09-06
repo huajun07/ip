@@ -8,7 +8,7 @@ import chirp.io.Attribute;
 import chirp.io.Parser;
 
 /**
- * Event task object
+ * Represents event task object
  */
 public class Event extends Task {
     public static final String TAG = "E";

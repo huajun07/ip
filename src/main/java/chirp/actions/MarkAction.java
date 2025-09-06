@@ -7,14 +7,14 @@ import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
 /**
- * Action to mark a task as done or not done
+ * Represents action to mark a task as done or not done
  */
 public class MarkAction extends Action {
     private boolean isDone;
     private int index;
 
     /**
-     * Create MarkAction from user input
+     * Creates MarkAction from user input
      *
      * @param command Command used to determine whether to mark or unmark
      * @param input   User input to extract date filter

@@ -6,13 +6,13 @@ import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
 /**
- * Action to filter tasks
+ * Represents action to filter tasks
  */
 public class FindAction extends Action {
     private String filter;
 
     /**
-     * Create FindAction from user input
+     * Creates FindAction from user input
      *
      * @param input User input to extract string filter
      * @throws InvalidAttributeException

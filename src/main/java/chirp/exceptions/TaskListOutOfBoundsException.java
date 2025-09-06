@@ -1,11 +1,11 @@
 package chirp.exceptions;
 
 /**
- * Exception for out of bounds index access for tasklist
+ * Represents exception for out of bounds index access for tasklist
  */
 public class TaskListOutOfBoundsException extends ChirpException {
     /**
-     * Create TaskListOutOfBoundsException
+     * Creates TaskListOutOfBoundsException
      *
      * @param idx  Invalid index used
      * @param size Size of task list

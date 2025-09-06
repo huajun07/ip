@@ -16,7 +16,7 @@ import chirp.tasks.TaskList;
 import chirp.tasks.Todo;
 
 /**
- * Helper class to manager task data file
+ * Manages task data file
  */
 public class FileManager {
     private final Path filePath;
