@@ -24,6 +24,7 @@ public class MarkAction extends Action {
         Scanner inputSc = new Scanner(input);
         inputSc.next();
         index = inputSc.nextInt() - 1;
+        assert(command == Command.MARK || command == Command.UNMARK) : "Invalid command passed to MarkAction";
         isDone = command == Command.MARK;
     }
 
