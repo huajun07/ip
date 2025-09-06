@@ -2,6 +2,8 @@ package chirp.tasks;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import chirp.exceptions.ChirpException;
 import chirp.exceptions.TaskListOutOfBoundsException;
@@ -31,6 +33,7 @@ public class TaskList {
 
     /**
      * Delete a task from the list
+     *
      * @param idx 0-Index of the task to delete
      * @return Task object deleted
      * @throws ChirpException
@@ -87,16 +90,14 @@ public class TaskList {
     /**
      * @param filter Filter string
      * @return String containing list of tasks that contains the filter
-     *     string in the descriptions.
+     * string in the descriptions.
      */
     public String displayStr(String filter) {
-        StringBuilder data = new StringBuilder();
-        for (int i = 0; i < getNumOfTasks(); i++) {
-            if (tasks.get(i).containsStr(filter)) {
-                data.append(String.format("%d. %s\n", i + 1, tasks.get(i)));
-            }
-        }
-        return data.toString();
+        String data = IntStream.range(0, getNumOfTasks())
+                .filter(i -> tasks.get(i).containsStr(filter))
+                .mapToObj(i -> String.format("%d. %s", i + 1, tasks.get(i)))
+                .collect(Collectors.joining("\n"));
+        return data.toString() + "\n";
     }
 
     private void checkValidIdx(int idx) throws TaskListOutOfBoundsException {
