@@ -22,7 +22,7 @@ public class Main extends Application {
             Scene scene = new Scene(ap);
             stage.setScene(scene);
             MainWindow window = fxmlLoader.<MainWindow>getController();
-            Chirp chirp = new Chirp("data/tasks.txt", window);
+            Chirp chirp = new Chirp(window);
             window.setChirp(chirp); // inject the Duke instance
             stage.show();
         } catch (IOException e) {

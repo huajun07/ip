@@ -19,7 +19,7 @@ public class Ui {
     }
 
     /**
-     * Display a message to the user
+     * Displays a message to the user
      *
      * @param messages Lines of messages to display
      */
@@ -60,26 +60,35 @@ public class Ui {
     }
 
     /**
-     * Helper function to print greeting message
+     * Helps to print greeting message
      */
     public void greet() {
         printMessage(" Hello! I'm " + NAME, " What can I do for you?");
     }
 
     /**
-     * Helper function to print farewell message
+     * Helps to print farewell message
      */
     public void exit() {
         printMessage(" Bye. Hope to see you again soon!");
     }
 
     /**
-     * Helper function to return info string on number of tasks in tasklist
+     * Helps to return info string on number of tasks in tasklist
      *
      * @param taskList
      * @return Info string
      */
     public String taskListCount(TaskList taskList) {
         return " Currently " + taskList.getNumOfTasks() + " tasks in the task list.";
+    }
+
+    /**
+     * Helps to print query message for tasks data file path
+     * @param defaultFilePath
+     */
+    public void queryFilePath(String defaultFilePath) {
+        printMessage("Hi! First enter tasks data file path",
+                "(Enter empty string to default to " + defaultFilePath + ")");
     }
 }
