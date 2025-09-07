@@ -44,7 +44,8 @@ public class AddAction extends Action {
             task = new Event(description, startTime, endTime);
         }
         default -> {
-            throw new ChirpException("Unknown Error!");
+            // This should not happen and is a code bug
+            assert (false) : "Non task command passed to AddAction";
         }
         }
     }
