@@ -7,14 +7,14 @@ import chirp.exceptions.CorruptedFileException;
 import chirp.exceptions.TaskEmptyAttributeException;
 
 /**
- * Abstract base task object
+ * Represents abstract base task object
  */
 public abstract class Task {
     protected String description;
     protected boolean isDone;
 
     /**
-     * Abstract task constructor
+     * Creates abstract task
      *
      * @param description Description of task
      * @throws ChirpException

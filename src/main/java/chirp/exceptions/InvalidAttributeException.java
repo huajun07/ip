@@ -1,11 +1,11 @@
 package chirp.exceptions;
 
 /**
- * Exception for invalid attribute type
+ * Represents exception for invalid attribute type
  */
 public class InvalidAttributeException extends ChirpException {
     /**
-     * Create InvalidAttributeException
+     * Creates InvalidAttributeException
      *
      * @param data      Attribute value in input
      * @param attribute Attribute name

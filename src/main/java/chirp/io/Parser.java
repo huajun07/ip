@@ -17,11 +17,11 @@ import chirp.exceptions.InvalidAttributeException;
 import chirp.exceptions.InvalidCommandException;
 
 /**
- * Parser object to help with input processing
+ * Contains helper functions for input processing
  */
 public class Parser {
     /**
-     * Given an input string extract attribute string
+     * Given an input string extracts attribute string
      *
      * @param input     The input string
      * @param attribute Attribute to search for

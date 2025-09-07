@@ -4,12 +4,12 @@ import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
 /**
- * Action of exiting chat bot
+ * Represents action of exiting chat bot
  */
 public class ExitAction extends Action {
 
     /**
-     * Terminate the chat bot
+     * Terminates the chat bot
      *
      * @param taskList List of tasks
      * @param ui       UI interface

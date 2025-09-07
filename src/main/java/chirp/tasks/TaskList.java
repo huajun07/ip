@@ -7,7 +7,7 @@ import chirp.exceptions.ChirpException;
 import chirp.exceptions.TaskListOutOfBoundsException;
 
 /**
- * Object to manage list of tasks
+ * Manages list of tasks
  */
 public class TaskList {
 

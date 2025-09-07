@@ -8,7 +8,7 @@ import chirp.io.Attribute;
 import chirp.io.Parser;
 
 /**
- * Deadline task object
+ * Represents deadline task object
  */
 public class Deadline extends Task {
     public static final String TAG = "D";

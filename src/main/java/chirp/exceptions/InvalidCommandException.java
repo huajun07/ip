@@ -1,12 +1,12 @@
 package chirp.exceptions;
 
 /**
- * Exception for unknown user command
+ * Represents exception for unknown user command
  */
 public class InvalidCommandException extends ChirpException {
 
     /**
-     * Create InvalidCommandException
+     * Creates InvalidCommandException
      */
     public InvalidCommandException() {
         super("Unknown Command");
