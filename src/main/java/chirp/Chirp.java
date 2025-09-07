@@ -8,7 +8,7 @@ import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
 /**
- * Main object of Chirp chatbot
+ * Represents main object of Chirp chatbot
  */
 public class Chirp {
     private TaskList taskList;

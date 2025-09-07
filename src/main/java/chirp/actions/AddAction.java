@@ -11,13 +11,13 @@ import chirp.tasks.TaskList;
 import chirp.tasks.Todo;
 
 /**
- * Action of adding task to list
+ * Represents action of adding task to list
  */
 public class AddAction extends Action {
     private Task task;
 
     /**
-     * Create AddAction from user input
+     * Creates AddAction from user input
      *
      * @param command Command used to determine what type of task to be added
      * @param input   Exact input where attributes of the task can be extracted
@@ -44,7 +44,8 @@ public class AddAction extends Action {
             task = new Event(description, startTime, endTime);
         }
         default -> {
-            throw new ChirpException("Unknown Error!");
+            // This should not happen and is a code bug
+            assert (false) : "Non task command passed to AddAction";
         }
         }
     }

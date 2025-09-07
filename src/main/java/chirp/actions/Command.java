@@ -2,7 +2,7 @@ package chirp.actions;
 import chirp.exceptions.InvalidCommandException;
 
 /**
- * Enum of possible user commands
+ * Represents enum of possible user commands
  */
 public enum Command {
     BYE("bye"), LIST("list"), MARK("mark"), UNMARK("unmark"),
@@ -16,7 +16,7 @@ public enum Command {
     }
 
     /**
-     * Convert string keyword to command enum
+     * Converts string keyword to command enum
      *
      * @param input the keyword
      * @return the corresponding command enum

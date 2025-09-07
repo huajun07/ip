@@ -1,11 +1,11 @@
 package chirp.exceptions;
 
 /**
- * Base checked exceptions for Chirp Bot
+ * Represents base checked exceptions for Chirp Bot
  */
 public class ChirpException extends Exception {
     /**
-     * Create ChirpException
+     * Creates ChirpException
      *
      * @param reason Reason for the exception
      */

@@ -1,7 +1,7 @@
 package chirp.exceptions;
 
 /**
- * Exception for corrupted task data file
+ * Represents exception for corrupted task data file
  */
 public class CorruptedFileException extends ChirpException {
     /**

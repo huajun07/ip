@@ -8,13 +8,13 @@ import chirp.tasks.Task;
 import chirp.tasks.TaskList;
 
 /**
- * Action to delete a task from the list
+ * Represents action to delete a task from the list
  */
 public class DeleteAction extends Action {
     private int index;
 
     /**
-     * Create DeleteAction from user input
+     * Creates DeleteAction from user input
      *
      * @param input User input to extract task index
      */
@@ -25,7 +25,7 @@ public class DeleteAction extends Action {
     }
 
     /**
-     * Delete a task from the task list
+     * Deletes a task from the task list
      *
      * @param taskList List of tasks
      * @param ui       UI interface

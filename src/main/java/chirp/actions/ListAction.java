@@ -9,13 +9,13 @@ import chirp.io.Ui;
 import chirp.tasks.TaskList;
 
 /**
- * Action to list tasks
+ * Represents action to list tasks
  */
 public class ListAction extends Action {
     private LocalDate date;
 
     /**
-     * Create ListAction from user input
+     * Creates ListAction from user input
      *
      * @param input User input to extract date filter
      * @throws ChirpException
@@ -29,7 +29,7 @@ public class ListAction extends Action {
     }
 
     /**
-     * List the tasks in the task list filtered by date
+     * Lists the tasks in the task list filtered by date
      *
      * @param taskList List of tasks
      * @param ui       UI interface

@@ -3,7 +3,7 @@ package chirp.tasks;
 import chirp.exceptions.ChirpException;
 
 /**
- * Todo Task Object
+ * Represents todo Task Object
  */
 public class Todo extends Task {
     public static final String TAG = "T";
