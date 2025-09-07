@@ -33,7 +33,6 @@ public class TaskList {
 
     /**
      * Delete a task from the list
-     *
      * @param idx 0-Index of the task to delete
      * @return Task object deleted
      * @throws ChirpException
@@ -90,7 +89,7 @@ public class TaskList {
     /**
      * @param filter Filter string
      * @return String containing list of tasks that contains the filter
-     * string in the descriptions.
+     *     string in the descriptions.
      */
     public String displayStr(String filter) {
         String data = IntStream.range(0, getNumOfTasks())
