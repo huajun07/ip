@@ -13,6 +13,8 @@ public enum Attribute {
     }
 
     /**
+     * Gets tag
+     *
      * @return Underlying string of attribute tag
      */
     public String getTag() {

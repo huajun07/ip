@@ -39,7 +39,7 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Get dialog box of the user input
+     * Gets dialog box of the user input
      *
      * @param text User input
      * @param img  User image
@@ -50,7 +50,7 @@ public class DialogBox extends HBox {
     }
 
     /**
-     * Get dialog box of the chirp response
+     * Gets dialog box of the chirp response
      *
      * @param text Chirp response
      * @param img  Chirp image

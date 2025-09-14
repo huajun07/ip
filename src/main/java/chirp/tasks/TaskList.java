@@ -32,7 +32,7 @@ public class TaskList {
     }
 
     /**
-     * Delete a task from the list
+     * Deletes a task from the list
      * @param idx 0-Index of the task to delete
      * @return Task object deleted
      * @throws ChirpException
@@ -54,7 +54,7 @@ public class TaskList {
     }
 
     /**
-     * Getter function for task in list
+     * Gets task in list
      *
      * @param idx Index of task to retrieve (0-indexed)
      * @return Requested task
@@ -65,7 +65,7 @@ public class TaskList {
     }
 
     /**
-     * Getter function for num of tasks in list
+     * Gets num of tasks in list
      *
      * @return Num of tasks in list
      */
@@ -74,6 +74,8 @@ public class TaskList {
     }
 
     /**
+     * Returns display string filtered by date
+     *
      * @return Human-readable string of list of task objects
      */
     public String displayStr(LocalDate date) {
@@ -87,6 +89,8 @@ public class TaskList {
     }
 
     /**
+     * Returns display string filtered by substring
+     *
      * @param filter Filter string
      * @return String containing list of tasks that contains the filter
      *     string in the descriptions.

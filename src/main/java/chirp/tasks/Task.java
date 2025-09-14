@@ -28,7 +28,7 @@ public abstract class Task {
     }
 
     /**
-     * Helper function to validate and extract the serialised data of the tasks
+     * Validates and extract the serialised data of the tasks
      *
      * @param data      Serialised data string
      * @param tag       Task tag
@@ -57,7 +57,7 @@ public abstract class Task {
     }
 
     /**
-     * Setter function of whether a task has been done
+     * Sets whether a task is done
      *
      * @param isDone Set value
      */
@@ -66,7 +66,7 @@ public abstract class Task {
     }
 
     /**
-     * Alternative setter of isDone using serialised string value
+     * Sets isDone using serialised string value
      *
      * @param data Either "X" or "O"
      */
@@ -75,7 +75,7 @@ public abstract class Task {
     }
 
     /**
-     * Function to be overriden to determine if a date filter applies to the task
+     * Determines if a date filter applies to the task
      *
      * @param date Date filter
      * @return True for generic task
@@ -85,6 +85,8 @@ public abstract class Task {
     }
 
     /**
+     * Determines if a string filter applies to the task
+     *
      * @param filter Filter string
      * @return True if the task description contains the filter string
      */
@@ -93,7 +95,7 @@ public abstract class Task {
     }
 
     /**
-     * @return Human-readable string representation of task
+     * {@inheritDoc}
      */
     @Override
     public String toString() {

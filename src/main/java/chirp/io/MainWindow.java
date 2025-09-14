@@ -63,7 +63,7 @@ public class MainWindow extends AnchorPane {
     }
 
     /**
-     * Display message from chirp
+     * Displays message from chirp
      *
      * @param message Message to be displayed
      */

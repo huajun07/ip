@@ -22,7 +22,7 @@ public class FileManager {
     private final Path filePath;
 
     /**
-     * Initialise the file manager and creates data file if it doesnt exist
+     * Initialises the file manager and creates data file if it doesnt exist
      *
      * @param filePathStr File path
      * @throws IOException
@@ -41,7 +41,7 @@ public class FileManager {
     }
 
     /**
-     * Serialise the tasks in the task list to a data string to be written to the file
+     * Serialises the tasks in the task list to a data string to be written to the file
      *
      * @param taskList Task list
      * @return Data string
@@ -57,7 +57,7 @@ public class FileManager {
     }
 
     /**
-     * Given a data string of a task, deserialise it to a Task object
+     * Deserialises a data string to a Task object
      *
      * @param data Data string of the task
      * @return Deserialised task
@@ -84,7 +84,7 @@ public class FileManager {
     }
 
     /**
-     * Save the serialised data of the tasks into the task data file
+     * Saves the serialised data of the tasks into the task data file
      *
      * @param taskList task list to save
      * @throws IOException

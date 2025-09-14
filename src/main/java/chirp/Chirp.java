@@ -78,7 +78,7 @@ public class Chirp {
     }
 
     /**
-     * Get isRunning boolean
+     * Returns isRunning boolean
      *
      * @return isRunning
      */

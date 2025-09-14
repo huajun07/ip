@@ -30,7 +30,7 @@ public class Deadline extends Task {
     }
 
     /**
-     * Deserialise a data string to a deadline task object
+     * Deserialises a data string to a deadline task object
      *
      * @param data Data string
      * @return The corresponding deadline task object

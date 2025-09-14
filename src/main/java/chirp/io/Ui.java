@@ -3,14 +3,14 @@ package chirp.io;
 import chirp.tasks.TaskList;
 
 /**
- * Helper class to manage input and output with the user
+ * Manages input and output with the user
  */
 public class Ui {
     private static final String NAME = "Chirp";
     private MainWindow window;
 
     /**
-     * Create Ui Object
+     * Creates Ui Object
      *
      * @param window Display window
      */

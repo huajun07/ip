@@ -29,7 +29,7 @@ public class MarkAction extends Action {
     }
 
     /**
-     * Mark/Unmark task
+     * Updates whether a task is done
      *
      * @param taskList List of tasks
      * @param ui       UI interface

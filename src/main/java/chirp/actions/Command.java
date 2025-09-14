@@ -32,6 +32,8 @@ public enum Command {
     }
 
     /**
+     * Returns keyword
+     *
      * @return Underlying string of the Command Enum
      */
     public String getKeyword() {

@@ -19,7 +19,7 @@ public class Todo extends Task {
     }
 
     /**
-     * Deserialise a data string to a Todo task object
+     * Deserialises a data string to a Todo task object
      *
      * @param data Data string
      * @return The corresponding Todo task object

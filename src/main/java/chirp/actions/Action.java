@@ -10,7 +10,7 @@ import chirp.tasks.TaskList;
 public abstract class Action {
 
     /**
-     * Abstract method of the action's execution
+     * Executes the action
      *
      * @param taskList List of tasks
      * @param ui       UI interface
@@ -19,7 +19,7 @@ public abstract class Action {
     public abstract void execute(TaskList taskList, Ui ui) throws ChirpException;
 
     /**
-     * Abstract method of whether an action is an exiting action
+     * Returns whether the action is a terminating action
      *
      * @return True if action terminates the chat
      */

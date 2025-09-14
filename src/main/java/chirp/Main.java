@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * A GUI for Chirp using FXML.
+ * Represents a GUI for Chirp using FXML.
  */
 public class Main extends Application {
 
