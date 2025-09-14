@@ -79,6 +79,9 @@ public class Parser {
      */
     public static Action parse(String input) throws ChirpException {
         Scanner inputSc = new Scanner(input);
+        if (!inputSc.hasNext()) {
+            throw new InvalidCommandException();
+        }
         Command command = Command.fromString(inputSc.next());
         switch (command) {
         case LIST -> {
